@@ -5,3 +5,16 @@
 // %font-FONTNAME   {}
 // %font-sans-serif { font-family: sans-serif; }
 // %font-serif      { font-family: serif; }
+@font-face {
+  font-family: 'SansaProLight';
+  src: url('../fonts/sansapro-light/SansaProLight.eot');
+  src: url('../fonts/sansapro-light/SansaProLight.eot') format('embedded-opentype'),
+  url('../fonts/sansapro-light/SansaProLight.woff2') format('woff2'),
+  url('../fonts/sansapro-light/SansaProLight.woff') format('woff'),
+  url('../fonts/sansapro-light/SansaProLight.ttf') format('truetype'),
+  url('../fonts/sansapro-light/SansaProLight.svg#SansaProLight') format('svg');
+}
+$font-sans: "Open Sans", "Helvetica", sans-serif;
+$font-sansalight: "SansaProLight", "Open Sans", "Helvetica", sans-serif;
+
+$lightgreen: #7bc051;

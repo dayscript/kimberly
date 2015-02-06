@@ -1,1 +1,9 @@
 // Non-modular or client styles for the .l-content region.
+#first-time{
+  display: none;
+}
+p{
+  font-family: $font-sans;
+  font-size: 0.82rem;
+  color: #666;
+}

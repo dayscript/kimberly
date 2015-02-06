@@ -1,1 +1,14 @@
 // Non-modular or client styles for .l-footer region.
+.footer-wrapper{
+  background: $lightgreen;
+  color: white;
+  .panel{
+    background:none;
+    border: none;
+    p{
+      color: white;
+      font-family: $font-sans;
+      font-size: 0.7rem;
+    }
+  }
+}
