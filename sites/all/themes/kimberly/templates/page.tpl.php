@@ -81,10 +81,8 @@
 
   <?php if (!empty($page['featured'])): ?>
     <!--.l-featured -->
-    <section class="l-featured row">
-      <div class="columns">
-        <?php print render($page['featured']); ?>
-      </div>
+    <section class="l-featured">
+      <?php print render($page['featured']); ?>
     </section>
     <!--/.l-featured -->
   <?php endif; ?>
@@ -110,6 +108,7 @@
   <?php endif; ?>
 
   <!--.l-main -->
+<div class="main-wrapper">
   <main role="main" class="row l-main">
     <!-- .l-main region -->
     <div class="<?php print $main_grid; ?> main columns">
@@ -139,6 +138,7 @@
 
       <?php print render($page['content']); ?>
     </div>
+</div>
     <!--/.l-main region -->
 
     <?php if (!empty($page['sidebar_first'])): ?>

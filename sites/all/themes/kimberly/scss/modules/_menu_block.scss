@@ -1,11 +1,25 @@
 .block-superfish{
-  margin-top: 100px;
+  &.block-superfish-1{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0;
+  }
   ul.menu{
     font-family: $font-sansalight;
+    float: right;
     li{
       a{
         color: #666;
-        padding: 10px;
+        padding: 15px;
+        &.active,
+        &:hover{
+          background: $lightgreen;
+          color: white;
+        }
+        &:hover{
+          background: lighten( $lightgreen, 10% );
+        }
       }
     }
   }

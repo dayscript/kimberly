@@ -14,7 +14,28 @@
   url('../fonts/sansapro-light/SansaProLight.ttf') format('truetype'),
   url('../fonts/sansapro-light/SansaProLight.svg#SansaProLight') format('svg');
 }
+@font-face {
+  font-family: 'SansaProNormal';
+  src: url('../fonts/sansapro-normal/SansaProNormal.eot');
+  src: url('../fonts/sansapro-normal/SansaProNormal.eot') format('embedded-opentype'),
+  url('../fonts/sansapro-normal/SansaProNormal.woff2') format('woff2'),
+  url('../fonts/sansapro-normal/SansaProNormal.woff') format('woff'),
+  url('../fonts/sansapro-normal/SansaProNormal.ttf') format('truetype'),
+  url('../fonts/sansapro-normal/SansaProNormal.svg#SansaProNormal') format('svg');
+}
+@font-face {
+  font-family: 'SansaProNormalItalic';
+  src: url('../fonts/sansapro-normali/SansaProNormalItalic.eot');
+  src: url('../fonts/sansapro-normali/SansaProNormalItalic.eot') format('embedded-opentype'),
+  url('../fonts/sansapro-normali/SansaProNormalItalic.woff2') format('woff2'),
+  url('../fonts/sansapro-normali/SansaProNormalItalic.woff') format('woff'),
+  url('../fonts/sansapro-normali/SansaProNormalItalic.ttf') format('truetype'),
+  url('../fonts/sansapro-normali/SansaProNormalItalic.svg#SansaProNormalItalic') format('svg');
+}
 $font-sans: "Open Sans", "Helvetica", sans-serif;
 $font-sansalight: "SansaProLight", "Open Sans", "Helvetica", sans-serif;
+$font-sansanormal: "SansaProNormal", "Open Sans", "Helvetica", sans-serif;
+$font-sansanormali: "SansaProNormalItalic", "Open Sans", "Helvetica", sans-serif;
 
 $lightgreen: #7bc051;
+$blue1: #26649c;

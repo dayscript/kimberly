@@ -105,9 +105,11 @@
 @import "layout/footer";
 
 // Modules
-// @import "modules/block";
+@import "modules/block";
 // @import "modules/button";
 @import "modules/menu_block";
+@import "modules/dsusers";
+@import "modules/slider";
 
 // States
 // @import "states/collapse";

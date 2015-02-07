@@ -1,0 +1,65 @@
+<?php
+/**
+ * Implements hook_theme().
+ */
+function dsusers_theme() {
+  $hooks = array();
+  $hooks['dsusers_logged_block'] = array(
+    'variables' => array('data' => array()),
+    'template' => "templates/logged_user"
+  );
+  return $hooks;
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function dsusers_block_info() {
+  $blocks['dsusers_logged_block'] = array(
+    'info' => 'Información usuario logueado',
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function dsusers_block_view($delta = '') {
+  $block = array();
+  switch ($delta) {
+    case 'dsusers_logged_block':
+      $block['content'] = theme('dsusers_logged_block', array('data' => dsusers_logged_block()));
+      break;
+  }
+  return $block;
+}
+
+/**
+ * @return array
+ */
+function dsusers_logged_block() {
+  global $user;
+  $datos = '';
+  $us = user_load($user->uid);
+  if ($us->uid != 0){
+    $datos['nombre'] = $us->name;
+    $datos['uid'] = $us->uid;
+  }
+  return $datos;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function dsusers_form_alter(&$form, &$form_state, $form_id) {
+  switch ($form_id) {
+    case 'user_login_block':
+      $form['name']['#attributes']['placeholder'] = 'Email';
+      $form['pass']['#attributes']['placeholder'] = 'Contraseña';
+      $form['actions']['submit']['#value'] = "Entrar";
+      break;
+    default:
+      # code...
+      break;
+  }
+}
