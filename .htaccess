@@ -146,5 +146,10 @@ RewriteRule ^(.*)$ https://kimberly.demodayscript.com%{REQUEST_URI}
       # Force proxies to cache gzipped & non-gzipped css/js files separately.
       Header append Vary Accept-Encoding
     </FilesMatch>
+    <FilesMatch "(authorize|cron|install|upgrade).php">
+       Order deny,allow
+       deny from all
+       Allow from 127.0.0.1
+     </FilesMatch>
   </IfModule>
 </IfModule>
