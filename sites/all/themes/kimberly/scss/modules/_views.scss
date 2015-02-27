@@ -1,0 +1,11 @@
+.more-link{
+  a{
+    font-family: $font-sansanormal;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    padding: 10px 0 0 30px;
+    display: inline-block;
+    background: url("../images/icons/star.png") left 7px no-repeat;
+  }
+}
