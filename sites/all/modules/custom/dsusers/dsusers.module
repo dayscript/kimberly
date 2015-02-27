@@ -42,7 +42,7 @@ function dsusers_logged_block() {
   $datos = '';
   $us = user_load($user->uid);
   if ($us->uid != 0){
-    $datos['nombre'] = $us->name;
+    $datos['nombre'] = $us->field_nombres['und'][0]['value'];
     $datos['uid'] = $us->uid;
   }
   return $datos;
