@@ -54,7 +54,7 @@ function dsusers_logged_block() {
 function dsusers_form_alter(&$form, &$form_state, $form_id) {
   switch ($form_id) {
     case 'user_login_block':
-      $form['name']['#attributes']['placeholder'] = 'Email';
+      $form['name']['#attributes']['placeholder'] = 'Usuario';
       $form['pass']['#attributes']['placeholder'] = 'Contraseña';
       $form['actions']['submit']['#value'] = "Entrar";
       break;
