@@ -1,55 +1,58 @@
 .block-dsusers{
   font-family: $font-sansanormal;
   margin-top: 10px;
-  color: #666;
+  color: #ffffff;
   font-size: 0.9rem;
   .welcome{
     .name{
       text-transform: uppercase;
     }
     .logout{
-      border-top: 4px solid $lightgreen;
+      border-top: 4px solid $darkred;
       float: right;
       padding: 3px 0 0 10px;
       margin-top: 3px;
       a{
-        color: $lightgreen;
+        color: #ffffff;
         font-family: $font-sansanormali;
         font-size: 0.85rem;
       }
     }
   }
   .myaccount{
-    background: $blue1;
+    background: $darkred;
     font-family: $font-sansalight;
     a{
+      text-transform: uppercase;
       color: white;
       padding: 15px 0 15px 20px;
       display: block;
-      background: url("../images/backgrounds/my-account.png") no-repeat 0px 6px;
+      background: url("../images/backgrounds/my-account.png") no-repeat -4px 6px;
     }
   }
 }
 .block-user-login{
-  background: #000;
+  font-family: $font-sansalight;
   label[for="edit-pass"],
   label[for="edit-name"]{
     display: none;
   }
   h2.block-title{
-    color: white;
     text-align: center;
+    font-size: 1.2rem;
   }
   #edit-submit{
-    background: $lightgreen;
-    color: white;
+    background: $darkred;
     font-family: $font-sansalight;
     width: 100%;
     border: none;
     border-radius: 0;
     text-transform: uppercase;
-    font-size: 1.5rem;
-    padding: 10px;
+    font-size: 1.2rem;
+    padding: 8px;
+    &:hover{
+      background: lighten( $darkred, 10% );
+    }
   }
   .item-list{
     ul{
@@ -59,8 +62,7 @@
         text-align: center;
         a{
           font-size: 0.8rem;
-          color: white;
-          font-family: $font-sans;
+          color: $text-gray;
           &:hover{
             text-decoration: underline;
           }
@@ -71,11 +73,12 @@
 }
 .front.not-logged-in{
   .main-wrapper{
-    background: url("../images/backgrounds/login.jpg") top center no-repeat;
-    padding: 200px 0;
+    background: url("../images/backgrounds/fondo-login.jpg") center -325px no-repeat;
+    padding: 50px 0;
     min-height: 500px;
     .block-user-login {
       background: none;
+      max-width: 300px;
     }
   }
 }

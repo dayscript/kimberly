@@ -1,6 +1,7 @@
 // Non-modular or client styles for .l-footer region.
 .footer-wrapper{
-  background: $lightgreen;
+  border-top: 4px solid $darkred;
+  margin-top: 15px;
   color: white;
   .panel{
     background:none;
@@ -10,5 +11,9 @@
       font-family: $font-sans;
       font-size: 0.7rem;
     }
+  }
+  h2.block-title{
+    font-size: 1.2rem;
+    text-transform: none;
   }
 }

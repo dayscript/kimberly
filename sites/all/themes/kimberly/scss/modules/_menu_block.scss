@@ -10,15 +10,24 @@
     float: right;
     li{
       a{
-        color: #666;
+        color: #ffffff;
         padding: 15px;
+        text-transform: uppercase;
         &.active,
         &:hover{
-          background: $lightgreen;
+          background: $darkred;
           color: white;
         }
         &:hover{
-          background: lighten( $lightgreen, 10% );
+          background: darken( $darkred, 10% );
+          text-decoration: none;
+        }
+      }
+      &.active-trail{
+        a{
+          color: white;
+          background: darken( $darkred, 10% );
+          text-decoration: none;
         }
       }
     }
