@@ -33,7 +33,9 @@ h2.block-title{
 .block-blockify-blockify-logo{
   margin: 7px 0;
 }
-.block-views-noticias-block{
+.block-views-noticias-block,
+.block-views-entretenimiento-block,
+.block-views-eventos-block{
   h2.block-title{
     background: url("../images/backgrounds/noticias-block-header.jpg") left center no-repeat;
     padding: 22px;
