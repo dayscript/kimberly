@@ -52,6 +52,7 @@
     font-size: 1rem;
     padding: 5px 25px 10px 25px;
     text-transform: uppercase;
+    min-height: 63px;
     a{
       color: $text-darkgray;
     }
@@ -59,6 +60,7 @@
   .views-field-body{
     background-color: #ffffff;
     padding: 0 25px 15px 25px;
+    min-height: 92px;
     p{
       font-family: $font-sansanormal;
       color: $text-darkgray;
