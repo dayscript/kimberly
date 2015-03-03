@@ -38,7 +38,8 @@
   }
 }
 .view-noticias,
-.view-entretenimiento{
+.view-entretenimiento,
+.view-universidad{
   .views-field-created{
     background-color: #ffffff;
     color: $darkred;
@@ -53,6 +54,10 @@
   .arrow2{
     margin-top: -7px;
     position: absolute;
+  }
+  .arrow3{
+    margin-top: -21px;
+    height: 21px;
   }
   .views-field-title{
     background-color: #ffffff;
@@ -88,4 +93,7 @@
       }
     }
   }
+}
+.view-universidad{
+
 }
