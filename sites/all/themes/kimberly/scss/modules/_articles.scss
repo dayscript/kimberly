@@ -56,8 +56,11 @@
     position: absolute;
   }
   .arrow3{
-    margin-top: -21px;
-    height: 21px;
+    margin-top: -77px;
+    height: 101px;
+    position: absolute;
+    top: 155px;
+    left: 378px;
   }
   .views-field-title{
     background-color: #ffffff;
@@ -95,5 +98,7 @@
   }
 }
 .view-universidad{
-
+  .views-field-field-image{
+    opacity: 0.8;
+  }
 }
