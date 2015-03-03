@@ -15,7 +15,8 @@
       font-weight: 700;
     }
   }
-  .field-name-post-date{
+  .field-name-post-date,
+  .field-name-field-fecha{
     color: #ffffff;
     font-family: $font-sansalight;
     font-size: 0.85rem;
@@ -31,7 +32,8 @@
   }
 }
 .view-eventos{
-  .views-field-created{
+  .views-field-created,
+  .views-field-field-fecha{
     background-color: #ffffff;
     color: $darkred;
     font-family: $font-sansanormali;
