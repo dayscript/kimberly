@@ -86,7 +86,8 @@
   &.view-display-id-block_2,
   &.view-display-id-block_3{
     &>.view-content{
-      .views-row-1{
+      .views-row-1,
+      .views-row-odd{
         padding-right: 0;
       }
     }
@@ -94,6 +95,9 @@
       .views-row-1{
         padding-left: 0;
       }
+    }
+    .views-row-even{
+      padding-left: 0;
     }
   }
 }
