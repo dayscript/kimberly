@@ -158,7 +158,7 @@
   <?php if (!empty($page['triptych_first']) || !empty($page['triptych_middle']) || !empty($page['triptych_last'])): ?>
     <!--.triptych-->
     <section class="l-triptych row">
-      <div class="triptych-first medium-4 columns">
+      <div class="triptych-first medium-16 columns">
         <?php print render($page['triptych_first']); ?>
       </div>
       <div class="triptych-middle medium-4 columns">
