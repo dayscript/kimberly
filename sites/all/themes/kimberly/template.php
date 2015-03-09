@@ -10,7 +10,7 @@ function kimberly_preprocess_html(&$variables) {
  * Implements template_preprocess_page.
  */
 function kimberly_preprocess_page(&$variables) {
-// Convenience variables.
+    // Convenience variables.
     if (!empty($variables['page']['sidebar_first'])) {
         $left = $variables['page']['sidebar_first'];
     }
