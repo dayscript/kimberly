@@ -1,4 +1,20 @@
-.node-type-article{
+.node-type-page {
+  .body.field {
+    background: #ffffff;
+    padding: 20px;
+    p {
+      color: $text-gray;
+      font-size: 0.95rem;
+      a{
+        color: #008CBA;
+        &.button{
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}
+  .node-type-article{
   .body.field{
     background: #ffffff;
     padding: 20px;

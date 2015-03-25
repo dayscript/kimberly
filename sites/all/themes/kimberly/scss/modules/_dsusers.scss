@@ -82,3 +82,30 @@
     }
   }
 }
+.page-user{
+  form{
+    .form-item{
+      label{
+        color: white;
+      }
+      a{
+        color: #008cba;
+      }
+      .description{
+        color: #ffffff;
+        .has-tip{
+          color: #008cba;
+        }
+      }
+    }
+    button.secondary{
+      background: #c22b37;
+    }
+    fieldset {
+      legend{
+        background: none;
+        color: #ffffff;
+      }
+    }
+  }
+}
