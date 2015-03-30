@@ -16,14 +16,18 @@ function complete_profile_form($form, &$form_state, $account) {
   $instances = field_info_instances('user', 'user');
   foreach (element_children($form) as $key) {
     if (!isset($instances[$key])) {
-      $form[$key]['#access'] = FALSE;
+      //$form[$key]['#access'] = FALSE;
     }
     else {
       if (!empty($instances[$key]['required'])) {
         // If the user has already filled out a value for this field, hide it.
-        if (!complete_profile_field_is_empty('user', $account, $key)) {
-          $form[$key]['#access'] = FALSE;
+
+        if (!complete_profile_field_is_empty('user', $account, $key) && $key != "field_ciudad") {
+          //$form[$key]['#access'] = FALSE;
+        } else {
+
         }
+
       }
       elseif (empty($instances[$key]['user_register_form'])) {
         // Hide any fields not configured to show up on the registration form.
