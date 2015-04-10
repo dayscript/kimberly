@@ -2,64 +2,122 @@
 /**
  * Implements hook_theme().
  */
-function dsusers_theme() {
-  $hooks = array();
-  $hooks['dsusers_logged_block'] = array(
-    'variables' => array('data' => array()),
-    'template' => "templates/logged_user"
-  );
-  return $hooks;
+function dsusers_theme()
+{
+    $hooks = array();
+    $hooks[ 'dsusers_logged_block' ] = array(
+        'variables' => array( 'data' => array() ),
+        'template'  => "templates/logged_user"
+    );
+    $hooks[ 'dsusers_presentation_block' ] = array(
+        'variables' => array( 'data' => array() ),
+        'template'  => "templates/presentation"
+    );
+
+    return $hooks;
 }
 
 /**
  * Implements hook_block_info().
  */
-function dsusers_block_info() {
-  $blocks['dsusers_logged_block'] = array(
-    'info' => 'Información usuario logueado',
-  );
-  return $blocks;
+function dsusers_block_info()
+{
+    $blocks[ 'dsusers_logged_block' ] = array(
+        'info' => 'Información usuario logueado',
+    );
+    $blocks[ 'dsusers_presentation_block' ] = array(
+        'info' => 'Presentación asociada al segmento y mecánica del usuario.',
+    );
+    return $blocks;
 }
 
 /**
  * Implements hook_block_view().
  */
-function dsusers_block_view($delta = '') {
-  $block = array();
-  switch ($delta) {
-    case 'dsusers_logged_block':
-      $block['content'] = theme('dsusers_logged_block', array('data' => dsusers_logged_block()));
-      break;
-  }
-  return $block;
+function dsusers_block_view( $delta = '' )
+{
+    $block = array();
+    switch ( $delta )
+    {
+        case 'dsusers_logged_block':
+            $block[ 'content' ] = theme( 'dsusers_logged_block', array( 'data' => dsusers_logged_block() ) );
+            break;
+        case 'dsusers_presentation_block':
+            $block[ 'content' ] = theme( 'dsusers_presentation_block', array( 'data' => dsusers_presentation_block() ) );
+            break;
+    }
+
+    return $block;
 }
 
 /**
  * @return array
  */
-function dsusers_logged_block() {
-  global $user;
-  $datos = '';
-  $us = user_load($user->uid);
-  if ($us->uid != 0){
-    $datos['nombre'] = $us->field_nombres['und'][0]['value'];
-    $datos['uid'] = $us->uid;
-  }
-  return $datos;
+function dsusers_logged_block()
+{
+    global $user;
+    $datos = '';
+    $us = user_load( $user->uid );
+    if ( $us->uid != 0 )
+    {
+        $datos[ 'nombre' ] = $us->field_nombres[ 'und' ][ 0 ][ 'value' ];
+        $datos[ 'uid' ] = $us->uid;
+    }
+
+    return $datos;
+}
+
+
+/**
+ * @return array
+ */
+function dsusers_presentation_block()
+{
+    global $user;
+    $datos = array();
+    $us = user_load( $user->uid );
+    if ( $us->uid != 0 )
+    {
+        $datos[ 'uid' ] = $us->uid;
+        //if(isset($us->field_segmento) && isset($us->field_segmento['und']))
+        //    $datos[ 'segmento' ] = $us->field_segmento[ 'und' ][ 0 ][ 'tid' ];
+        //else
+        //    $datos['segmento'] = 0;
+        if(isset($us->field_mecanica) && isset($us->field_mecanica['und']))
+            $datos[ 'mecanica' ] = $us->field_mecanica[ 'und' ][ 0 ][ 'tid' ];
+        else
+            $datos['mecanica'] = 0;
+        $query = new EntityFieldQuery();
+        $result = $query->entityCondition('entity_type', 'node')
+            ->entityCondition('bundle', 'presentacion')
+            ->propertyCondition('status', 1)
+        //    //->fieldCondition('field_segmento', 'tid', $datos['segmento'])
+            ->fieldCondition('field_mecanica', 'tid', $datos['mecanica'])
+            ->execute();
+        if (isset($result['node'])) {
+            $nids = array_keys($result['node']);
+            $presentaciones = entity_load("node", array($nids));
+            $datos['presentacion'] = $presentaciones[$nids[0]];
+        }
+
+    }
+    return $datos;
 }
 
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function dsusers_form_alter(&$form, &$form_state, $form_id) {
-  switch ($form_id) {
-    case 'user_login_block':
-      $form['name']['#attributes']['placeholder'] = 'Usuario';
-      $form['pass']['#attributes']['placeholder'] = 'Contraseña';
-      $form['actions']['submit']['#value'] = "Entrar";
-      break;
-    default:
-      # code...
-      break;
-  }
+function dsusers_form_alter( &$form, &$form_state, $form_id )
+{
+    switch ( $form_id )
+    {
+        case 'user_login_block':
+            $form[ 'name' ][ '#attributes' ][ 'placeholder' ] = 'Usuario';
+            $form[ 'pass' ][ '#attributes' ][ 'placeholder' ] = 'Contraseña';
+            $form[ 'actions' ][ 'submit' ][ '#value' ] = "Entrar";
+            break;
+        default:
+            # code...
+            break;
+    }
 }
