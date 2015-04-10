@@ -36,11 +36,17 @@ h2.block-title{
 .block-views-noticias-block,
 .block-views-entretenimiento-block,
 .block-views-eventos-block,
-.block-dsusers{
+.block-dsusers-dsusers-presentation-block{
   h2.block-title{
     background: url("../images/backgrounds/noticias-block-header.jpg") left center no-repeat;
     padding: 22px;
     margin-bottom: 0;
+  }
+}
+.block-dsusers-dsusers-presentation-block{
+  margin-top: 0;
+  h2{
+    margin-top: 0;
   }
 }
 .block-views-noticias-block-3{
