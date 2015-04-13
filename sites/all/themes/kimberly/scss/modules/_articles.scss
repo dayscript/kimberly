@@ -56,6 +56,7 @@
 .view-noticias,
 .view-entretenimiento,
 .view-universidad{
+
   .views-field-created{
     background-color: #ffffff;
     color: $darkred;
@@ -103,6 +104,9 @@
   &.view-display-id-block_2,
   &.view-display-id-block_3{
     &>.view-content{
+      .views-row{
+        margin-bottom: 20px;
+      }
       .views-row-1,
       .views-row-odd{
         padding-right: 0;
