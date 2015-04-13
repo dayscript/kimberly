@@ -116,3 +116,20 @@
   }
   margin-bottom: 20px;
 }
+
+.page-user{
+  .profile{
+    background: #ffffff;
+    padding: 20px;
+    p {
+      color: $text-gray;
+      font-size: 0.95rem;
+      a{
+        color: #008CBA;
+        &.button{
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}
