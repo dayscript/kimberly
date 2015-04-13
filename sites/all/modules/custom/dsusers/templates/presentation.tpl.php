@@ -3,6 +3,7 @@
     <img
         src="<?php echo image_style_url( 'escalar_a_341', $data[ 'presentacion' ]->field_image[ 'und' ][ 0 ][ 'uri' ] ) ?>"/>
 </a>
+<?php /*
 <div class="views-field views-field-nothing">
     <span class="field-content">
         <div class="arrow"><img src="/sites/all/themes/kimberly/images/backgrounds/arrow.png"></div>
