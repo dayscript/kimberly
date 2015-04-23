@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="535d6176-fc32-4bb3-b030-a7cc074ebd52" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/custom/dsusers/templates/desafios.tpl.php" afterPath="$PROJECT_DIR$/sites/all/modules/custom/dsusers/templates/desafios.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/custom/dsusers/dsusers.module" afterPath="$PROJECT_DIR$/sites/all/modules/custom/dsusers/dsusers.module" />
     </list>
     <ignored path="kimberly.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,8 +44,8 @@
       <file leaf-file-name="desafios.tpl.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/dsusers/templates/desafios.tpl.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35714287" vertical-offset="1771" max-vertical-offset="3818">
-              <caret line="87" column="34" selection-start-line="87" selection-start-column="34" selection-end-line="87" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.75" vertical-offset="1771" max-vertical-offset="3818">
+              <caret line="98" column="24" selection-start-line="98" selection-start-column="24" selection-end-line="98" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -1315,8 +1314,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/dsusers/templates/desafios.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35714287" vertical-offset="1771" max-vertical-offset="3818">
-          <caret line="87" column="34" selection-start-line="87" selection-start-column="34" selection-end-line="87" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.75" vertical-offset="1771" max-vertical-offset="3818">
+          <caret line="98" column="24" selection-start-line="98" selection-start-column="24" selection-end-line="98" selection-end-column="24" />
           <folding />
         </state>
       </provider>
