@@ -103,6 +103,7 @@ function dsusers_desafios_block()
                 $datos[ "desafios" ][ $desafio->field_tipodesafio[ "und" ][ 0 ][ "value" ] ][ $desafio->nid ] =
                     array( "nombre" => $desafio->title,
                         "descripcion"=>$desafio->body['und'][0]['value'],
+                        "mostrar"=>$desafio->field_mostrar_presupuesto["und"][0]["value"],
                         "estrellas" => $liquidacion->field_estrellas["und"][0]["value"],
                         "cumplimiento" => $liquidacion->field_cumplimiento["und"][0]["value"],
                         "presupuesto" => $liquidacion->field_presupuesto["und"][0]["value"],
