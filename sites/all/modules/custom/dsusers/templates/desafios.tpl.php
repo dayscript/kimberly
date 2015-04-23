@@ -78,8 +78,14 @@
                     <small><?php echo $desafio[ "descripcion" ] ?></small>
                     <div class="item estrellas">Estrellas obtenidas <span
                             class="data"><?php echo $desafio[ "estrellas" ] ?></span></div>
-                    <div class="item">Presupuesto: <span
-                            class="data"><?php echo number_format( $desafio[ "presupuesto" ], "0", ",", "." ) ?></span>
+                    <div class="item">
+                        <?php if ( $desafio[ "unidades" ] == "Pesos" ): ?>
+                            Presupuesto: <span
+                                class="data">$<?php echo number_format( $desafio[ "presupuesto" ], "0", ",", "." ) ?></span>
+                        <?php else: ?>
+                            Presupuesto: <span
+                                class="data"><?php echo number_format( $desafio[ "presupuesto" ], "0", ",", "." ) . " " . $desafio[ "unidades" ] ?></span>
+                        <?php endif ?>
                     </div>
                     <div class="item">
                         <?php if ( $desafio[ "unidades" ] == "Pesos" ): ?>
