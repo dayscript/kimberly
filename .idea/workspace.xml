@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="535d6176-fc32-4bb3-b030-a7cc074ebd52" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/themes/kimberly/scss/modules/_desafios.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/custom/dsusers/templates/desafios.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/kimberly/scss/base/_common.scss" afterPath="$PROJECT_DIR$/sites/all/themes/kimberly/scss/base/_common.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/custom/dsusers/dsusers.module" afterPath="$PROJECT_DIR$/sites/all/modules/custom/dsusers/dsusers.module" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/kimberly/css/kimberly.css" afterPath="$PROJECT_DIR$/sites/all/themes/kimberly/css/kimberly.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/kimberly/scss/kimberly.scss" afterPath="$PROJECT_DIR$/sites/all/themes/kimberly/scss/kimberly.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/custom/dsusers/templates/presentation.tpl.php" afterPath="$PROJECT_DIR$/sites/all/modules/custom/dsusers/templates/presentation.tpl.php" />
     </list>
     <ignored path="kimberly.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,41 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="desafios.tpl.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/dsusers/templates/desafios.tpl.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15115005" vertical-offset="2231" max-vertical-offset="3197">
-              <caret line="103" column="13" selection-start-line="103" selection-start-column="13" selection-end-line="103" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dsusers.module" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dsusers.module" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/dsusers/dsusers.module">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2047" max-vertical-offset="4485">
-              <caret line="114" column="1" selection-start-line="114" selection-start-column="1" selection-end-line="114" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_desafios.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sites/all/themes/kimberly/scss/modules/_desafios.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-21.72" vertical-offset="1228" max-vertical-offset="2208">
-              <caret line="77" column="31" selection-start-line="77" selection-start-column="31" selection-end-line="77" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_common.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sites/all/themes/kimberly/scss/base/_common.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-31.92" vertical-offset="260" max-vertical-offset="1196">
-              <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.25191677" vertical-offset="1403" max-vertical-offset="4485">
+              <caret line="71" column="24" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -121,9 +85,9 @@
         <option value="$PROJECT_DIR$/sites/all/modules/custom/dsusers/templates/presentation.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/themes/kimberly/scss/kimberly.scss" />
         <option value="$PROJECT_DIR$/sites/all/themes/kimberly/scss/base/_common.scss" />
-        <option value="$PROJECT_DIR$/sites/all/modules/custom/dsusers/dsusers.module" />
         <option value="$PROJECT_DIR$/sites/all/themes/kimberly/scss/modules/_desafios.scss" />
         <option value="$PROJECT_DIR$/sites/all/modules/custom/dsusers/templates/desafios.tpl.php" />
+        <option value="$PROJECT_DIR$/sites/all/modules/custom/dsusers/dsusers.module" />
       </list>
     </option>
   </component>
@@ -1313,14 +1277,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/themes/kimberly/scss/base/_common.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-31.92" vertical-offset="260" max-vertical-offset="1196">
-          <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/dsusers/templates/presentation.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="667">
@@ -1329,26 +1285,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/dsusers/dsusers.module">
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/dsusers/templates/desafios.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2047" max-vertical-offset="4485">
-          <caret line="114" column="1" selection-start-line="114" selection-start-column="1" selection-end-line="114" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.5794085" vertical-offset="2231" max-vertical-offset="3197">
+          <caret line="120" column="46" selection-start-line="120" selection-start-column="46" selection-end-line="120" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/kimberly/scss/modules/_desafios.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.72" vertical-offset="1228" max-vertical-offset="2208">
+        <state vertical-scroll-proportion="0.6114865" vertical-offset="1228" max-vertical-offset="2208">
           <caret line="77" column="31" selection-start-line="77" selection-start-column="31" selection-end-line="77" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/dsusers/templates/desafios.tpl.php">
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/kimberly/scss/base/_common.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15115005" vertical-offset="2231" max-vertical-offset="3197">
-          <caret line="103" column="13" selection-start-line="103" selection-start-column="13" selection-end-line="103" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.8986486" vertical-offset="260" max-vertical-offset="1196">
+          <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/dsusers/dsusers.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25191677" vertical-offset="1403" max-vertical-offset="4485">
+          <caret line="71" column="24" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="24" />
           <folding />
         </state>
       </provider>
