@@ -14,6 +14,11 @@ function dsusers_theme()
         'template'  => "templates/presentation"
     );
 
+    $hooks[ 'dsusers_desafios_block' ] = array(
+        'variables' => array( 'data' => array() ),
+        'template'  => "templates/desafios"
+    );
+
     return $hooks;
 }
 
@@ -28,6 +33,10 @@ function dsusers_block_info()
     $blocks[ 'dsusers_presentation_block' ] = array(
         'info' => 'Presentación asociada al segmento y mecánica del usuario.',
     );
+    $blocks[ 'dsusers_desafios_block' ] = array(
+        'info' => 'Desafíos del usuario',
+    );
+
     return $blocks;
 }
 
@@ -45,9 +54,64 @@ function dsusers_block_view( $delta = '' )
         case 'dsusers_presentation_block':
             $block[ 'content' ] = theme( 'dsusers_presentation_block', array( 'data' => dsusers_presentation_block() ) );
             break;
+        case 'dsusers_desafios_block':
+            $block[ 'content' ] = theme( 'dsusers_desafios_block', array( 'data' => dsusers_desafios_block() ) );
+            break;
     }
 
     return $block;
+}
+
+function dsusers_desafios_block()
+{
+    drupal_add_js("https://code.highcharts.com/highcharts.js",'external');
+    global $user;
+    $datos = array();
+    //$us = user_load( $user->uid );
+    $us = user_load( 365 );
+    if ( $us->uid != 0 )
+    {
+        $datos[ 'nombre' ] = $us->field_nombres[ 'und' ][ 0 ][ 'value' ] . ' ' . $us->field_apellidos[ 'und' ][ 0 ][ 'value' ];
+        $datos[ 'uid' ] = $us->uid;
+        $datos['cedula'] = $us->name;
+        $perfil = taxonomy_term_load($us->field_perfil['und'][0]['tid']);
+        $datos['perfil'] = $perfil->name;
+        $ciudad = taxonomy_term_load($us->field_ciudad['und'][0]['tid']);
+        $datos['ciudad'] = $ciudad->name;
+        $query = new EntityFieldQuery();
+        $result = $query->entityCondition( 'entity_type', 'node' )
+            ->entityCondition( 'bundle', 'liquidacion' )
+            ->propertyCondition( 'status', 1 )
+            ->propertyCondition( 'uid', $us->uid )
+            ->execute();
+        if ( isset( $result[ 'node' ] ) )
+        {
+            $nids = array_keys( $result[ 'node' ] );
+            $liquidaciones = entity_load( "node", array( $nids ) );
+            $datos[ "meses" ] = array();
+            $datos[ "desafios" ] = array();
+            $datos[ "estrellas" ] = 0;
+            foreach ( $liquidaciones as $nid => $liquidacion )
+            {
+                $mes = date( "Y-m", strtotime( $liquidacion->field_mes[ 'und' ][ 0 ][ 'value' ] ) );
+                if ( !in_array( $mes, $datos[ "meses" ] ) ) $datos[ "meses" ][ ] = $mes;
+                $desafio = node_load( $liquidacion->field_desafio[ "und" ][ 0 ][ 'target_id' ] );
+                $datos[ "desafios" ][ $desafio->field_tipodesafio[ "und" ][ 0 ][ "value" ] ][ $desafio->nid ] =
+                    array( "nombre" => $desafio->title,
+                        "descripcion"=>$desafio->body['und'][0]['value'],
+                        "estrellas" => $liquidacion->field_estrellas["und"][0]["value"],
+                        "cumplimiento" => $liquidacion->field_cumplimiento["und"][0]["value"],
+                        "presupuesto" => $liquidacion->field_presupuesto["und"][0]["value"],
+                        "valor" => $liquidacion->field_venta["und"][0]["value"],
+                        "unidades" => $liquidacion->field_unidades["und"][0]["value"]
+                    );
+                $datos["estrellas"] += $liquidacion->field_estrellas["und"][0]["value"];
+            }
+            //$datos['liquidaciones'] = $liquidaciones;
+        }
+    }
+
+    return $datos;
 }
 
 /**
@@ -83,24 +147,26 @@ function dsusers_presentation_block()
         //    $datos[ 'segmento' ] = $us->field_segmento[ 'und' ][ 0 ][ 'tid' ];
         //else
         //    $datos['segmento'] = 0;
-        if(isset($us->field_mecanica) && isset($us->field_mecanica['und']))
+        if ( isset( $us->field_mecanica ) && isset( $us->field_mecanica[ 'und' ] ) )
             $datos[ 'mecanica' ] = $us->field_mecanica[ 'und' ][ 0 ][ 'tid' ];
         else
-            $datos['mecanica'] = 0;
+            $datos[ 'mecanica' ] = 0;
         $query = new EntityFieldQuery();
-        $result = $query->entityCondition('entity_type', 'node')
-            ->entityCondition('bundle', 'presentacion')
-            ->propertyCondition('status', 1)
-        //    //->fieldCondition('field_segmento', 'tid', $datos['segmento'])
-            ->fieldCondition('field_mecanica', 'tid', $datos['mecanica'])
+        $result = $query->entityCondition( 'entity_type', 'node' )
+            ->entityCondition( 'bundle', 'presentacion' )
+            ->propertyCondition( 'status', 1 )
+            //    //->fieldCondition('field_segmento', 'tid', $datos['segmento'])
+            ->fieldCondition( 'field_mecanica', 'tid', $datos[ 'mecanica' ] )
             ->execute();
-        if (isset($result['node'])) {
-            $nids = array_keys($result['node']);
-            $presentaciones = entity_load("node", array($nids));
-            $datos['presentacion'] = $presentaciones[$nids[0]];
+        if ( isset( $result[ 'node' ] ) )
+        {
+            $nids = array_keys( $result[ 'node' ] );
+            $presentaciones = entity_load( "node", array( $nids ) );
+            $datos[ 'presentacion' ] = $presentaciones[ $nids[ 0 ] ];
         }
 
     }
+
     return $datos;
 }
 
