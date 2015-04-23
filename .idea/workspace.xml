@@ -34,8 +34,8 @@
       <file leaf-file-name="dsusers.module" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/dsusers/dsusers.module">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.25191677" vertical-offset="1403" max-vertical-offset="4485">
-              <caret line="71" column="24" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.4560811" vertical-offset="2125" max-vertical-offset="5589">
+              <caret line="110" column="21" selection-start-line="110" selection-start-column="21" selection-end-line="110" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -1311,8 +1311,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/dsusers/dsusers.module">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25191677" vertical-offset="1403" max-vertical-offset="4485">
-          <caret line="71" column="24" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.4560811" vertical-offset="2125" max-vertical-offset="5589">
+          <caret line="110" column="21" selection-start-line="110" selection-start-column="21" selection-end-line="110" selection-end-column="21" />
           <folding />
         </state>
       </provider>
