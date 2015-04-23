@@ -100,6 +100,12 @@ function dsusers_desafios_block()
                 $mes = date( "Y-m", strtotime( $liquidacion->field_mes[ 'und' ][ 0 ][ 'value' ] ) );
                 if ( !in_array( $mes, $datos[ "meses" ] ) ) $datos[ "meses" ][ ] = $mes;
                 $desafio = node_load( $liquidacion->field_desafio[ "und" ][ 0 ][ 'target_id' ] );
+                if($liquidacion->field_estrellas["und"][0]["value"]==0
+                    && $liquidacion->field_cumplimiento["und"][0]["value"]==0
+                    && $liquidacion->field_presupuesto["und"][0]["value"]==0
+                    && $liquidacion->field_venta["und"][0]["value"]==0
+                    && $liquidacion->field_unidades["und"][0]["value"]==0
+                )continue;
                 $datos[ "desafios" ][ $desafio->field_tipodesafio[ "und" ][ 0 ][ "value" ] ][ $desafio->nid ] =
                     array( "nombre" => $desafio->title,
                         "descripcion"=>$desafio->body['und'][0]['value'],

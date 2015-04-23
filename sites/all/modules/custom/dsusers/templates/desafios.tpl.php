@@ -35,7 +35,7 @@
             <?php foreach ( $data[ "desafios" ][ "individual" ] as $desafio ): ?>
                 <div class="desafio">
                     <?php if ( $desafio[ "mostrar" ] == "No" ): ?>
-                        
+
                     <?php else: ?>
                         <div class="item cumplimiento">Cumplimiento: <span
                                 class="data"><?php echo number_format( $desafio[ "cumplimiento" ], "2", ",", "." ) ?>
