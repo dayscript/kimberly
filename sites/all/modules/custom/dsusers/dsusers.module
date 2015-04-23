@@ -67,10 +67,11 @@ function dsusers_desafios_block()
     drupal_add_js("https://code.highcharts.com/highcharts.js",'external');
     global $user;
     $datos = array();
-    if(isset($_GET["cedula"])&& $_GET["cedula"] != ""){
-        $us = user_load( $user->uid );
-    } else {
+    print_r($_REQUEST);
+    if(isset($_REQUEST["cedula"]) && $_REQUEST["cedula"] != ""){
         $us = user_load_by_name( trim($_GET["cedula"]) );
+    } else {
+        $us = user_load( $user->uid );
     }
 
     if ( $us->uid != 0 )
