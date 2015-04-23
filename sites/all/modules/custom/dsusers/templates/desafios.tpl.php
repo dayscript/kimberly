@@ -35,7 +35,7 @@
             <?php foreach ( $data[ "desafios" ][ "individual" ] as $desafio ): ?>
                 <div class="desafio">
                     <?php if ( $desafio[ "mostrar" ] == "No" ): ?>
-                        -
+                        
                     <?php else: ?>
                         <div class="item cumplimiento">Cumplimiento: <span
                                 class="data"><?php echo number_format( $desafio[ "cumplimiento" ], "2", ",", "." ) ?>
@@ -47,7 +47,7 @@
                     <div class="item estrellas">Estrellas obtenidas <span
                             class="data"><?php echo $desafio[ "estrellas" ] ?></span></div>
                     <?php if ( $desafio[ "mostrar" ] == "No" ): ?>
-                        -
+
                     <?php else: ?>
                         <div class="item">
                             <?php if ( $desafio[ "unidades" ] == "Pesos" ): ?>
@@ -96,7 +96,7 @@
                     <div class="item estrellas">Estrellas obtenidas <span
                             class="data"><?php echo $desafio[ "estrellas" ] ?></span></div>
                     <?php if ( $desafio[ "mostrar" ] == "No" ): ?>
-                        
+
                     <?php else: ?>
                         <div class="item">
                             <?php if ( $desafio[ "unidades" ] == "Pesos" ): ?>
