@@ -9,3 +9,6 @@
     background: url("../images/icons/star.png") left 7px no-repeat;
   }
 }
+[class*="column"]+[class*="column"]:last-child{
+  float: left;
+}
