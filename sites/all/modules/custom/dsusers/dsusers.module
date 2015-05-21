@@ -67,6 +67,9 @@ function dsusers_desafios_block()
     drupal_add_js("https://code.highcharts.com/highcharts.js",'external');
     global $user;
     $datos = array();
+    $datos[ "estrellas" ] = 0;
+    $datos[ "meses" ] = array();
+    $datos[ "desafios" ] = array();
     if(isset($_REQUEST["cedula"]) && $_REQUEST["cedula"] != ""){
         $us = user_load_by_name( trim($_GET["cedula"]) );
     } else {
@@ -91,13 +94,13 @@ function dsusers_desafios_block()
         if ( isset( $result[ 'node' ] ) )
         {
             $nids = array_keys( $result[ 'node' ] );
-            $liquidaciones = entity_load( "node", array( $nids ) );
-            $datos[ "meses" ] = array();
-            $datos[ "desafios" ] = array();
-            $datos[ "estrellas" ] = 0;
+            $liquidaciones = entity_load( "node",  $nids  );
+
+
             foreach ( $liquidaciones as $nid => $liquidacion )
             {
                 $mes = date( "Y-m", strtotime( $liquidacion->field_mes[ 'und' ][ 0 ][ 'value' ] ) );
+                dd($mes);
                 if ( !in_array( $mes, $datos[ "meses" ] ) ) $datos[ "meses" ][ ] = $mes;
                 $desafio = node_load( $liquidacion->field_desafio[ "und" ][ 0 ][ 'target_id' ] );
                 if($liquidacion->field_estrellas["und"][0]["value"]==0
@@ -108,7 +111,7 @@ function dsusers_desafios_block()
                 )continue;
                 $datos[ "desafios" ][ $desafio->field_tipodesafio[ "und" ][ 0 ][ "value" ] ][ $desafio->nid ] =
                     array( "nombre" => $desafio->title,
-                        "descripcion"=>$desafio->body['und'][0]['value'],
+                        "descripcion"=>'',//$desafio->body['und'][0]['value'],
                         "mostrar"=>$desafio->field_mostrar_presupuesto["und"][0]["value"],
                         "estrellas" => $liquidacion->field_estrellas["und"][0]["value"],
                         "cumplimiento" => $liquidacion->field_cumplimiento["und"][0]["value"],
@@ -154,10 +157,6 @@ function dsusers_presentation_block()
     if ( $us->uid != 0 )
     {
         $datos[ 'uid' ] = $us->uid;
-        //if(isset($us->field_segmento) && isset($us->field_segmento['und']))
-        //    $datos[ 'segmento' ] = $us->field_segmento[ 'und' ][ 0 ][ 'tid' ];
-        //else
-        //    $datos['segmento'] = 0;
         if ( isset( $us->field_mecanica ) && isset( $us->field_mecanica[ 'und' ] ) )
             $datos[ 'mecanica' ] = $us->field_mecanica[ 'und' ][ 0 ][ 'tid' ];
         else
@@ -166,13 +165,12 @@ function dsusers_presentation_block()
         $result = $query->entityCondition( 'entity_type', 'node' )
             ->entityCondition( 'bundle', 'presentacion' )
             ->propertyCondition( 'status', 1 )
-            //    //->fieldCondition('field_segmento', 'tid', $datos['segmento'])
             ->fieldCondition( 'field_mecanica', 'tid', $datos[ 'mecanica' ] )
             ->execute();
         if ( isset( $result[ 'node' ] ) )
         {
             $nids = array_keys( $result[ 'node' ] );
-            $presentaciones = entity_load( "node", array( $nids ) );
+            $presentaciones = entity_load( "node", $nids );
             $datos[ 'presentacion' ] = $presentaciones[ $nids[ 0 ] ];
         }
 
