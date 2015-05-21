@@ -1,4 +1,4 @@
-<?php if ( $data[ 'presentacion' ]->field_documento_adjunto[ 'und' ][ 0 ][ 'uri' ] ): ?>
+<?php if ( isset($data[ 'presentacion' ]) && $data[ 'presentacion' ]->field_documento_adjunto[ 'und' ][ 0 ][ 'uri' ] ): ?>
     <a target="_blank"
        href="<?php echo file_create_url( $data[ 'presentacion' ]->field_documento_adjunto[ 'und' ][ 0 ][ 'uri' ] ) ?>">
         <img
