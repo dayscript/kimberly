@@ -1,0 +1,200 @@
+<?php
+
+    
+    function kimberly_poll_block_info() {
+
+        $blocks = array();
+
+        $blocks['questions_form'] = array(
+            'cache' => DRUPAL_CACHE_GLOBAL,
+            'info'  => t('Encuesta kimberly')
+        );
+
+        return $blocks;
+
+    }
+
+    function kimberly_poll_block_view( $delta = '' ) {
+
+        $blocks = array();
+
+        if ( $delta == 'questions_form' ) {
+            $blocks['subject'] = t('Encuesta kimberly');
+            $blocks['content'] = theme( 'callback_questions', array(
+                    'questionsForm' => kimberly_poll_load_questions()
+                )
+            );
+        }
+
+        return $blocks;
+
+    }
+
+
+    function kimberly_poll_theme( $existing, $type, $theme, $path ) {
+        return array( 'callback_questions' => array( 'vars' => array('questionsForm' => NULL) ) );
+    }
+
+
+    function theme_callback_questions( &$vars ) {
+        
+        global $user;
+        
+        $query = db_select('node', 'ua')
+            ->fields('ua', array('nid'))
+            ->condition('ua.uid', $user->uid, '=')
+            ->condition('ua.type', 'user_answers', '=')
+            ->execute()
+            ->fetchAll();
+        
+        $output = drupal_render( drupal_get_form( 'kimberly_poll_quest_form', $vars['questionsForm'] ) );
+        
+        if ( count($query) > 0 ){
+            
+            $answer = node_load( $query[ count($query) - 1 ]->nid );
+        
+            if ( date('m/d/Y') >= date('m/d/Y', $answer->created) ) {
+                $output  = NULL;
+                $output .= '<div id="ContainerMessage" class="messages-poll">';
+                $output .=  '<h2>' .t('Gracias por sus respuestas') . '</h2>';
+                $output .=  '<h2>' .t('Su puntuación fue: @points', array('@points' => $answer->field_points['und'][0]['value'])) . '</h2>';
+                $output .=  '<h3>' .t('pasadas 24 horas usted podras realizar nuevamente la encuesta') . '</h3>';
+                $output .= '</div>';
+            }
+            
+        } 
+        
+        return $output;
+        
+    }
+
+
+    function kimberly_poll_load_questions() {
+
+        $questionsQuery  = new EntityFieldQuery();
+
+        $questionsQuery->entityCondition('entity_type', 'node')->entityCondition('bundle', 'questions');
+
+        $questionsResult = $questionsQuery->execute();
+        $options         = array_keys( $questionsResult['node'] );
+
+        return $options;
+
+    }
+
+
+    function kimberly_poll_quest_form( $form, &$form_states, $idQuestionsForm ) {
+
+        for ( $i=0; $i<count($idQuestionsForm); $i++ ) {
+
+            $questionForm = node_load( $idQuestionsForm[$i] );
+            
+            $form['question_' . ($i+1)] = array(
+                '#options' => kimberly_poll_options_load( $questionForm->body['und'][0]['safe_value'] ),
+                '#prefix'   => '<div class="content-question-' . ($i + 1) . '">',
+                '#required' => TRUE,
+                '#suffix'   => '</div>',
+                '#title'    => $questionForm->title,
+                '#type'     => 'radios',
+            );
+
+            $form['nid_' . ($i + 1)] = array(
+                '#type'  => 'hidden',
+                '#value' => $questionForm->nid
+            );
+
+        }
+
+        $form['send'] = array(
+            '#prefix' => '<div class="content-submit" data-url="ajax-submit-poll">' . $_SERVER['REQUEST_URI'],
+            '#suffix' => '</div>',
+            '#type'   => 'submit',
+            '#value'  => t('Enviar'),
+        );
+        
+        return $form;
+
+    }
+
+    function kimberly_poll_quest_form_submit( $form, &$form_states ) {
+
+        global $user;
+        
+        $points      = 0;
+        $commands    = array();
+        $values      = $form_states['values'];
+        $userAnswers = array(
+            'question1' => array(
+                'selected_answer' => $values['question_1'],
+                'nid'             => $values['nid_1'],
+            ),
+            'question2' => array(
+                'selected_answer' => $values['question_2'],
+                'nid'             => $values['nid_2'],
+            ),
+            'question3' => array(
+                'selected_answer' => $values['question_3'],
+                'nid'             => $values['nid_3'],
+            ),
+            'question4' => array(
+                'selected_answer' => $values['question_4'],
+                'nid'             => $values['nid_4'],
+            )
+        );
+        
+        $default     = array(
+            'type'    => 'user_answers',
+            'uid'     => $user->uid,
+            'status'  => 1,
+            'comment' => 0,
+            'promote' => 0
+        );
+        
+        $userAnswer        = entity_create( 'node', $default );
+        $userAnswerWrapper = entity_metadata_wrapper( 'node', $userAnswer );
+        
+        foreach ( $userAnswers as $answer ) {
+
+            $questions[]     = array( 'target_id' => intval($answer['nid']) );
+            $questionWrapper = entity_metadata_wrapper( 'node', $answer['nid'] );
+
+            if ( $answer['selected_answer'] == $questionWrapper->field_correct_answer->value() ) {
+                $points += 10;
+            }
+
+        }
+        
+        $userAnswerWrapper->title          = sprintf( 'Respuesta del usuario: %s', $user->name );
+        $userAnswerWrapper->field_question = $questions;
+        $userAnswerWrapper->field_points   = $points;
+        $userAnswerWrapper->save();
+        
+    }
+    
+
+    function kimberly_poll_options_load( $options ) {
+
+        $options = explode( ';', $options );
+        $keys    = array( 'a', 'b', 'c', 'd' );
+
+        for ( $i=0; $i<count($options)-1; $i++ ) {
+
+            $option                    = explode( '|', $options[$i] );
+            $optionsField[ $keys[$i] ] = $option[1];
+
+        }
+
+        return $optionsField;
+
+    }
+    
+    function kimberly_poll_answer_load(){
+        
+        
+        
+        
+        
+        
+        
+    }
+
