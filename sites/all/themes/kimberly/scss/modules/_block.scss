@@ -90,10 +90,16 @@ h2.block-title{
       font-weight: bold;
       font-size: 17px;
     }
-    .form-radios {
+    .form-radios{
       label{
         font-weight: normal;
         color: #999;
+        margin: 0;
+        display: initial;
+      }
+      input{
+        margin: 0;
+        display: initial;
       }
     } 
   }
