@@ -74,3 +74,26 @@ h2.block-title{
 .block-views{
   margin-bottom: 15px;
 }
+
+//kimberly poll
+#kimberly-poll-quest-form{
+  background: #fff;
+  & > div{
+    display: block;
+    overflow: hidden;
+  }
+  .question{
+    float: left;
+    width: 40%;
+    margin: 0 5%;
+    label{
+      font-weight: bold;
+      font-size: 17px;
+    }
+    .form-radios {
+      label{
+        font-weight: normal;
+      }
+    } 
+  }
+}
