@@ -91,7 +91,7 @@
             
             $form['question_' . ($i+1)] = array(
                 '#options' => kimberly_poll_options_load( $questionForm->body['und'][0]['safe_value'] ),
-                '#prefix'   => '<div class="content-question-' . ($i + 1) . '">',
+                '#prefix'   => '<div class="question content-question-' . ($i + 1) . '">',
                 '#required' => TRUE,
                 '#suffix'   => '</div>',
                 '#title'    => $questionForm->title,
