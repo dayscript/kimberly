@@ -93,7 +93,18 @@ h2.block-title{
     .form-radios {
       label{
         font-weight: normal;
+        color: #999;
       }
     } 
+  }
+  .content-submit{
+    display: block;
+    clear: both;
+    padding: 15px 0 5px;
+    #edit-send{
+      display: block;
+      margin: 0 auto 15px;
+      background: #8E2A2A;
+    }
   }
 }

@@ -106,10 +106,10 @@
         }
 
         $form['send'] = array(
-            '#prefix' => '<div class="content-submit" data-url="ajax-submit-poll">' . $_SERVER['REQUEST_URI'],
+            '#prefix' => '<div class="content-submit" data-url="ajax-submit-poll">',
             '#suffix' => '</div>',
             '#type'   => 'submit',
-            '#value'  => t('Enviar'),
+            '#value'  => t('Responder Encuesta'),
         );
         
         return $form;
