@@ -56,9 +56,9 @@
             if ( date('m/d/Y') >= date('m/d/Y', $answer->created) ) {
                 $output  = NULL;
                 $output .= '<div id="ContainerMessage" class="messages-poll">';
-                $output .=  '<h2>' .t('Gracias por sus respuestas') . '</h2>';
-                $output .=  '<h2>' .t('Su puntuación fue: @points', array('@points' => $answer->field_points['und'][0]['value'])) . '</h2>';
-                $output .=  '<h3>' .t('pasadas 24 horas usted podras realizar nuevamente la encuesta') . '</h3>';
+                $output .=  '<h2>' .t('Gracias por tus respuestas') . '</h2>';
+                $output .=  '<h2>' .t('Tu puntuación fue: @points', array('@points' => $answer->field_points['und'][0]['value'])) . '</h2>';
+                $output .=  '<h3>' .t('Pasadas 24 horas tu podrás realizar nuevamente la encuesta') . '</h3>';
                 $output .= '</div>';
             }
             
