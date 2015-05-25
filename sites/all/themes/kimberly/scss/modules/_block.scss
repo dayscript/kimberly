@@ -108,3 +108,13 @@ h2.block-title{
     }
   }
 }
+
+.messages-poll {
+  display: block;
+  padding: 0 35px 10px;
+  background-color: #fff;
+  * {
+    color: #444;
+    text-align: center;
+  }
+}
