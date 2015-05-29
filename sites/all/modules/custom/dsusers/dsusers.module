@@ -88,25 +88,35 @@ function dsusers_desafios_block()
         } else {
             $datos['perfil'] = "Sin Perfil";
         }
-        if($datos['perfil'] == "Jefe de Ventas"){
+        if($datos['perfil'] == "Jefe de Ventas" || $datos['perfil'] == "Consultor"){
             $query_users = new EntityFieldQuery();
-            $result_users = $query_users->entityCondition( 'entity_type', 'user' )
-                ->fieldCondition( 'field_jefe', 'target_id', $us->uid, '=' )
-                ->execute();
+            if($datos['perfil'] == "Jefe de Ventas"){
+                $result_users = $query_users->entityCondition( 'entity_type', 'user' )
+                    ->fieldCondition( 'field_jefe', 'target_id', $us->uid, '=' )
+                    ->execute();
+            } else if($datos['perfil'] == "Consultor"){
+                $result_users = $query_users->entityCondition( 'entity_type', 'user' )
+                    ->fieldCondition( 'field_consultores', 'target_id', $us->uid, '=' )
+                    ->execute();
+            }
             $users = user_load_multiple(array_keys($result_users['user']));
             $datos["vendedores"] = array();
             foreach($users as $vendedor){
+                if(isset($vendedor->field_perfil['und'])){
+                    $vendedor_perfil = taxonomy_term_load($vendedor->field_perfil['und'][0]['tid']);
+                    $perfil_name = $vendedor_perfil->name;
+                } else {
+                    $perfil_name = "Vendedor";
+                }
+
                 $user_data = get_user_data($vendedor->uid,$datos['mes']);
                 $datos["vendedores"][] = array(
                     "nombre" => $vendedor->field_nombres[ 'und' ][ 0 ][ 'value' ] . ' ' . $vendedor->field_apellidos[ 'und' ][ 0 ][ 'value' ],
                     "cedula" => $vendedor->name,
                     "estrellas" => $user_data["estrellas"],
-                    "desafios" => $user_data["desafios"]
+                    "desafios" => $user_data["desafios"],
+                    "perfil"=>$perfil_name
                 );
-
-                echo "<pre>";
-                //print_r($user_data);
-                echo "</pre>";
             }
         }
         $ciudad = taxonomy_term_load($us->field_ciudad['und'][0]['tid']);

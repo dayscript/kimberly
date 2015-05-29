@@ -132,7 +132,7 @@
                 <thead>
                 <tr>
                     <th>Cédula</th>
-                    <th>Nombre</th>
+                    <th>Nombre y Perfil</th>
                     <th class="text-right">Estrellas</th>
                     <th class="text-right">Detalles</th>
                 </tr>
@@ -141,10 +141,13 @@
                 <?php foreach($data["vendedores"] as $vendedor):?>
                     <tr>
                         <td><?php echo $vendedor["cedula"]?></td>
-                        <td><?php echo $vendedor["nombre"]?></td>
+                        <td><?php echo $vendedor["nombre"]?><br>
+                            <small><?php echo $vendedor["perfil"]?></small>
+                        </td>
                         <td class="text-right"><?php echo number_format($vendedor["estrellas"],0,",",".")?></td>
                         <td class="text-right"><button style="margin-bottom: 0" onclick="jQuery('tr.<?php echo $vendedor["cedula"]?>').toggle();" class="tiny success">Ver detalle</button></td>
                     </tr>
+                    <?php if(isset($vendedor[ "desafios" ][ "individual" ])):?>
                     <?php foreach ( $vendedor[ "desafios" ][ "individual" ] as $desafio ): ?>
                     <tr class="<?php echo $vendedor["cedula"]?> desafio" style="display: none;">
                         <td>&nbsp;</td>
@@ -176,6 +179,8 @@
                         <td></td>
                     </tr>
                     <?php endforeach?>
+                    <?php endif?>
+                    <?php if(isset($vendedor[ "desafios" ][ "grupal" ])):?>
                     <?php foreach ( $vendedor[ "desafios" ][ "grupal" ] as $desafio ): ?>
                         <tr class="<?php echo $vendedor["cedula"]?> desafio" style="display: none;">
                             <td>&nbsp;</td>
@@ -207,6 +212,7 @@
                             <td></td>
                         </tr>
                     <?php endforeach?>
+                <?php endif?>
                 <?php endforeach?>
                 </tbody>
             </table>
