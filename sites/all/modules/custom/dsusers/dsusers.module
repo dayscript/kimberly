@@ -93,10 +93,12 @@ function dsusers_desafios_block()
             if($datos['perfil'] == "Jefe de Ventas"){
                 $result_users = $query_users->entityCondition( 'entity_type', 'user' )
                     ->fieldCondition( 'field_jefe', 'target_id', $us->uid, '=' )
+                    ->fieldOrderBy('field_distribuidor', 'tid', 'ASC')
                     ->execute();
             } else if($datos['perfil'] == "Consultor"){
                 $result_users = $query_users->entityCondition( 'entity_type', 'user' )
                     ->fieldCondition( 'field_consultores', 'target_id', $us->uid, '=' )
+                    ->fieldOrderBy('field_distribuidor', 'tid', 'ASC')
                     ->execute();
             }
             $users = user_load_multiple(array_keys($result_users['user']));
