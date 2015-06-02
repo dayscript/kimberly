@@ -51,11 +51,15 @@ function _kimberly_md_slider_md_slider_556ddc3c44dec_block_visibility($block){
     global $user;
     $user_profile = user_load( $user->uid );
 
-    if ( $user_profile->uid != 0 )
-    {
+    if ( $user_profile->uid != 0 ) {
         if ( isset( $user_profile->field_segmento ) && isset( $user_profile->field_segmento[ 'und' ] ) ){
             foreach($user_profile->field_segmento[ 'und' ] as $seg){
-                if($seg['tid'] == 107){ // Mixto
+                if(
+                    $seg['tid'] == 107// Mixto
+                    || $seg['tid'] == 56 //Food
+                    || $seg['tid'] == 148 // Salud
+                    || $seg['tid'] == 62 // Industria con HW
+                ){
                     return true;
                 }
             }
@@ -68,11 +72,15 @@ function _kimberly_md_slider_slide_principal_block_visibility($block){
     if(!drupal_is_front_page())return false;
     global $user;
     $user_profile = user_load( $user->uid );
-    if ( $user_profile->uid != 0 )
-    {
+    if ( $user_profile->uid != 0 ) {
         if ( isset( $user_profile->field_segmento ) && isset( $user_profile->field_segmento[ 'und' ] ) ){
             foreach($user_profile->field_segmento[ 'und' ] as $seg){
-                if($seg['tid'] == 107){ // Mixto
+                if(
+                    $seg['tid'] == 107// Mixto
+                    || $seg['tid'] == 56 //Food
+                    || $seg['tid'] == 148 // Salud
+                    || $seg['tid'] == 62 // Industria con HW
+                ){
                     return false;
                 }
             }
