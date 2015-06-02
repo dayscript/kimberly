@@ -122,7 +122,7 @@ function dsusers_desafios_block()
                     "estrellas" => $user_data["estrellas"],
                     "desafios" => $user_data["desafios"],
                     "perfil"=>$perfil_name,
-                    "distribuidos"=>$dist_name
+                    "distribuidor"=>$dist_name
                 );
             }
         }
