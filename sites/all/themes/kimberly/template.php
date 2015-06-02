@@ -46,3 +46,37 @@ function kimberly_preprocess_page(&$variables) {
  */
 function kimberly_preprocess_node(&$variables) {
 }
+function _kimberly_md_slider_md_slider_556ddc3c44dec_block_visibility($block){
+    if(!drupal_is_front_page())return false;
+    global $user;
+    $user_profile = user_load( $user->uid );
+
+    if ( $user_profile->uid != 0 )
+    {
+        if ( isset( $user_profile->field_segmento ) && isset( $user_profile->field_segmento[ 'und' ] ) ){
+            foreach($user_profile->field_segmento[ 'und' ] as $seg){
+                if($seg['tid'] == 107){ // Mixto
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
+function _kimberly_md_slider_slide_principal_block_visibility($block){
+    if(!drupal_is_front_page())return false;
+    global $user;
+    $user_profile = user_load( $user->uid );
+    if ( $user_profile->uid != 0 )
+    {
+        if ( isset( $user_profile->field_segmento ) && isset( $user_profile->field_segmento[ 'und' ] ) ){
+            foreach($user_profile->field_segmento[ 'und' ] as $seg){
+                if($seg['tid'] == 107){ // Mixto
+                    return false;
+                }
+            }
+        }
+    }
+    return true;
+}
