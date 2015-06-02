@@ -109,13 +109,20 @@ function dsusers_desafios_block()
                     $perfil_name = "Vendedor";
                 }
 
+                if(isset($vendedor->field_distribuidor['und'])){
+                    $vendedor_dist = taxonomy_term_load($vendedor->field_distribuidor['und'][0]['tid']);
+                    $dist_name = $vendedor_dist->name;
+                } else {
+                    $dist_name = "Vendedor";
+                }
                 $user_data = get_user_data($vendedor->uid,$datos['mes']);
                 $datos["vendedores"][] = array(
                     "nombre" => $vendedor->field_nombres[ 'und' ][ 0 ][ 'value' ] . ' ' . $vendedor->field_apellidos[ 'und' ][ 0 ][ 'value' ],
                     "cedula" => $vendedor->name,
                     "estrellas" => $user_data["estrellas"],
                     "desafios" => $user_data["desafios"],
-                    "perfil"=>$perfil_name
+                    "perfil"=>$perfil_name,
+                    "distribuidos"=>$dist_name
                 );
             }
         }

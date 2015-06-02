@@ -142,7 +142,7 @@
                     <tr>
                         <td><?php echo $vendedor["cedula"]?></td>
                         <td><?php echo $vendedor["nombre"]?><br>
-                            <small><?php echo $vendedor["perfil"]?></small>
+                            <small><strong><?php echo $vendedor["distribuidor"]?></strong> - <?php echo $vendedor["perfil"]?></small><br/>
                         </td>
                         <td class="text-right"><?php echo number_format($vendedor["estrellas"],0,",",".")?></td>
                         <td class="text-right"><button style="margin-bottom: 0" onclick="jQuery('tr.<?php echo $vendedor["cedula"]?>').toggle();" class="tiny success">Ver detalle</button></td>
