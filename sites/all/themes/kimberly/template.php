@@ -46,7 +46,7 @@ function kimberly_preprocess_page(&$variables) {
  */
 function kimberly_preprocess_node(&$variables) {
 }
-function _kimberly_md_slider_md_slider_556ddc3c44dec_block_visibility($block){
+function _kimberly_md_slider_md_slider_556f36688dfb4_block_visibility($block){
     if(!drupal_is_front_page())return false;
     global $user;
     $user_profile = user_load( $user->uid );
