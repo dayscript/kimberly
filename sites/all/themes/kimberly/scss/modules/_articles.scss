@@ -172,18 +172,18 @@
 
 .group-video {
   background-color: #FFF;
-  padding: 20px 20px 0;
+  padding: 0;
   h3{
     display: none;
   }
   .field-group-format-wrapper {
     overflow: hidden;
-    .field{
-      float: left;
-    }
+    /*.field{
+      float: left; --> disabled
+    }*/
   }
   .field-name-field-video-description{
-    width: 281px;
+    /*width: 281px;*/
     margin-left: 15px;
     p {
       color: #999;
