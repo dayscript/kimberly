@@ -190,4 +190,9 @@
       font-size: 0.95rem;
     }
   }
+  .body{
+    &.field{
+      display: none;
+    }
+  }
 }
