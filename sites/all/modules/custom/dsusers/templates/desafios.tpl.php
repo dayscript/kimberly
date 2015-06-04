@@ -23,7 +23,7 @@
         <div class="meses">Escoja un periodo a continuación:
             <select name="mes" id="mes" onchange="document.location.href='/desafios?cedula=<?php echo $data["cedula"]?>&mes='+this.options[this.selectedIndex].value;">
                 <?php foreach ( $data[ "meses" ] as $mes ): ?>
-                    <option <?php echo ($mes ==$data["mes"])?"selected":""?>value="<?php echo $mes ?>"><?php echo $mes ?></option>
+                    <option <?php echo ($mes == $data["mes"])?"selected":""?> value="<?php echo $mes ?>"><?php echo $mes ?></option>
                 <?php endforeach ?>
             </select>
         </div>
