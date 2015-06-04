@@ -10,7 +10,7 @@
 </div>
 <?php if ( $data[ "perfil" ] != "Consultor" ): ?>
     <div class="acumulado">
-        <h3>Mi Acumulado</h3>
+        <h3>Mi Acumulado (<?php echo $data["mes"]?>)</h3>
 
         <div class="estrellas"><?php echo number_format( $data[ "estrellas" ], 0, ",", "." ) ?></div>
     </div>
