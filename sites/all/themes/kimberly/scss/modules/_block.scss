@@ -85,7 +85,7 @@ h2.block-title{
   .question{
     float: left;
     width: 40%;
-    margin: 0 5%;
+    margin: 0 5% 15px;
     height: 295px;
     label{
       font-weight: bold;
@@ -96,14 +96,17 @@ h2.block-title{
         font-weight: normal;
         color: #999;
         margin: 0;
-        display: initial;
+        display: inline;
       }
       input{
         margin: 0;
-        display: initial;
+        display: inline;
       }
     } 
   }
+  .form-type-radios{
+    margin-bottom: 
+  }  
   .content-submit{
     display: block;
     clear: both;
