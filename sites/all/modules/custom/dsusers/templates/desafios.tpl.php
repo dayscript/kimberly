@@ -21,7 +21,7 @@
 
     <div class="content">
         <div class="meses">Escoja un periodo a continuación:
-            <select name="mes" id="mes">
+            <select name="mes" id="mes" onchange="document.location.href='/desafios?mes='+this.options[this.selectedIndex].value;">
                 <?php foreach ( $data[ "meses" ] as $mes ): ?>
                     <option value="<?php echo $mes ?>"><?php echo $mes ?></option>
                 <?php endforeach ?>

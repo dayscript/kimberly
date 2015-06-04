@@ -69,6 +69,7 @@ function dsusers_desafios_block()
     $datos = array();
     $datos['meses'] = array("2015-03");
     $datos['mes'] = "2015-03";
+    if(isset($_REQUEST['mes']))$datos['mes'] = $_REQUEST["mes"];
     $datos[ "estrellas" ] = 0;
     $datos[ "desafios" ] = array();
     if(isset($_REQUEST["cedula"]) && $_REQUEST["cedula"] != ""){
