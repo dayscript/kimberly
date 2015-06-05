@@ -67,8 +67,8 @@ function dsusers_desafios_block()
     drupal_add_js("https://code.highcharts.com/highcharts.js",'external');
     global $user;
     $datos = array();
-    $datos['meses'] = array("2015-03","2015-04");
-    $datos['mes'] = "2015-03";
+    $datos['meses'] = array("2015-04","2015-03");
+    $datos['mes'] = "2015-04";
     if(isset($_REQUEST['mes']))$datos['mes'] = $_REQUEST["mes"];
     $datos[ "estrellas" ] = 0;
     $datos[ "desafios" ] = array();
