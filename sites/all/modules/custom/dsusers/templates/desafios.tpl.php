@@ -10,20 +10,33 @@
 </div>
 <?php if ( $data[ "perfil" ] == "Vendedor" || $data[ "perfil" ] == "Jefe de Ventas" ): ?>
     <div class="acumulado">
-        <h3>Mi Acumulado (<?php echo $data["mes"]?>)</h3>
+        <h3>Mi Acumulado (<?php echo $data[ "mes" ] ?>)</h3>
 
         <div class="estrellas"><?php echo number_format( $data[ "estrellas" ], 0, ",", "." ) ?></div>
     </div>
 <?php endif ?>
 <hr/>
 <div class="grupo">
-    <h3>Periodo de reporte</h3>
+    <h3>Filtros del reporte</h3>
 
     <div class="content">
+        <?php if ( count( $data[ "distribuidores" ] ) > 1 ): ?>
+            <div class="meses">Escoja un distribuidor:
+                <select name="distribuidor" id="distribuidor"
+                        onchange="document.location.href='/desafios?cedula=<?php echo $data[ "cedula" ] ?>&mes=<?php echo $data[ "mes" ] ?>&did='+this.options[this.selectedIndex].value;">
+                    <?php foreach ( $data[ "distribuidores" ] as $did => $distribuidor ): ?>
+                        <option <?php echo ( $did == $data[ "did" ] ) ? "selected" : "" ?>
+                            value="<?php echo $did ?>"><?php echo $distribuidor ?></option>
+                    <?php endforeach ?>
+                </select>
+            </div>
+        <?php endif ?>
         <div class="meses">Escoja un periodo a continuación:
-            <select name="mes" id="mes" onchange="document.location.href='/desafios?cedula=<?php echo $data["cedula"]?>&mes='+this.options[this.selectedIndex].value;">
+            <select name="mes" id="mes"
+                    onchange="document.location.href='/desafios?cedula=<?php echo $data[ "cedula" ] ?>&did=<?php echo $data[ "did" ] ?>&mes='+this.options[this.selectedIndex].value;">
                 <?php foreach ( $data[ "meses" ] as $mes ): ?>
-                    <option <?php echo ($mes == $data["mes"])?"selected":""?> value="<?php echo $mes ?>"><?php echo $mes ?></option>
+                    <option <?php echo ( $mes == $data[ "mes" ] ) ? "selected" : "" ?>
+                        value="<?php echo $mes ?>"><?php echo $mes ?></option>
                 <?php endforeach ?>
             </select>
         </div>
@@ -128,7 +141,7 @@
 <?php endif ?>
 <?php if ( isset( $data[ "vendedores" ] ) ): ?>
     <?php if ( count( $data[ "vendedores" ] ) > 0 ): ?>
-        <?php $distribuidor = $data[ "vendedores" ][ 0 ][ "distribuidor" ] ?>
+        <?php $distribuidor = $data["distribuidores"][$data["did"]] ?>
     <?php else: ?>
         <?php $distribuidor = "Grupo de vendedores" ?>
     <?php endif ?>
@@ -148,6 +161,7 @@
         </thead>
         <tbody>
         <?php foreach ( $data[ "vendedores" ] as $vendedor ): ?>
+            <?php if($vendedor["distribuidor"]!=$data["distribuidores"][$data["did"]])continue;?>
             <?php if ( $vendedor[ "distribuidor" ] != $distribuidor ): ?>
                 <?php $distribuidor = $vendedor[ "distribuidor" ] ?>
                 </tbody>
