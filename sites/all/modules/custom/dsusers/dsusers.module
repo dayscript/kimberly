@@ -138,7 +138,7 @@ function dsusers_desafios_block()
     return $datos;
 }
 
-function get_user_data($user_id, $month = "2015-03"){
+function get_user_data($user_id, $month = "2015-04"){
     $datos = array("desafios"=>array(),"estrellas"=>0);
     $query = new EntityFieldQuery();
     $result = $query->entityCondition( 'entity_type', 'node' )
@@ -149,6 +149,7 @@ function get_user_data($user_id, $month = "2015-03"){
         ->execute();
     if ( isset( $result[ 'node' ] ) )
     {
+
         $nids = array_keys( $result[ 'node' ] );
         $liquidaciones = entity_load( "node",  $nids  );
         foreach ( $liquidaciones as $nid => $liquidacion )

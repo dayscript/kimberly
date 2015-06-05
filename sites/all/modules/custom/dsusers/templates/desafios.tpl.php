@@ -8,7 +8,7 @@
         <small><?php echo $data[ "cedula" ] ?></small>
     </div>
 </div>
-<?php if ( $data[ "perfil" ] != "Consultor" ): ?>
+<?php if ( $data[ "perfil" ] == "Vendedor" || $data[ "perfil" ] == "Jefe de Ventas" ): ?>
     <div class="acumulado">
         <h3>Mi Acumulado (<?php echo $data["mes"]?>)</h3>
 
