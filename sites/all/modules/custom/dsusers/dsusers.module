@@ -151,6 +151,22 @@ function dsusers_desafios_block()
                     $vendedor_dist = taxonomy_term_load( $vendedor->field_distribuidor[ 'und' ][ 0 ][ 'tid' ] );
                     $dist_name = $vendedor_dist->name;
                     $datos[ "distribuidores" ][ $vendedor->field_distribuidor[ 'und' ][ 0 ][ 'tid' ] ] = $vendedor_dist->name;
+                    $presentacion = false;
+                    if(isset($vendedor_dist->field_mecanica['und'][0]['tid'])){
+                        $query = new EntityFieldQuery();
+                        $result = $query->entityCondition( 'entity_type', 'node' )
+                            ->entityCondition( 'bundle', 'presentacion' )
+                            ->propertyCondition( 'status', 1 )
+                            ->fieldCondition( 'field_mecanica', 'tid', $vendedor_dist->field_mecanica['und'][0]['tid'] )
+                            ->execute();
+                        if ( isset( $result[ 'node' ] ) )
+                        {
+                            $nids = array_keys( $result[ 'node' ] );
+                            $presentaciones = entity_load( "node", $nids );
+                            $presentacion = $presentaciones[ $nids[ 0 ] ];
+                        }
+                    }
+                    $datos['presentaciones'][$vendedor->field_distribuidor[ 'und' ][ 0 ][ 'tid' ]] = $presentacion;
                     if($datos["did"]==0)$datos["did"] = $vendedor->field_distribuidor[ 'und' ][ 0 ][ 'tid' ];
                 } else
                 {

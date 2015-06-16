@@ -57,142 +57,126 @@
                     <?php endforeach ?>
                 </select>
             </div>
-            <div class="meses small-4 columns right" style="font-size: 1.2rem;">
-                Total de Estrellas <br/>
-                <strong><?php echo $data["mes"]?></strong>:
-                <span class="red"><?php echo number_format( $data["liquidaciones"][$data["mes"]][ "estrellas" ], 0, ",", "." ) ?></span>
-            </div>
+            <?php if ( $data[ "perfil" ] == "Vendedor" || $data[ "perfil" ] == "Jefe de Ventas" ): ?>
+                <div class="meses small-4 columns right" style="font-size: 1.2rem;">
+                    Total de Estrellas <br/>
+                    <strong><?php echo $data["mes"]?></strong>:
+                    <span class="red"><?php echo number_format( $data["liquidaciones"][$data["mes"]][ "estrellas" ], 0, ",", "." ) ?></span>
+                </div>
+            <?php endif ?>
         </div>
     </div>
 </div>
-<?php if ( isset( $data["liquidaciones"][$data["mes"]][ "desafios" ][ "individual" ] ) && count( $data["liquidaciones"][$data["mes"]][ "desafios" ][ "individual" ] ) > 0 ): ?>
-    <div class="grupo">
-        <h3>Desafíos individuales</h3>
+<div class="row">
+    <div class="columns medium-12">
+        <?php if ( isset( $data["liquidaciones"][$data["mes"]][ "desafios" ][ "individual" ] ) && count( $data["liquidaciones"][$data["mes"]][ "desafios" ][ "individual" ] ) > 0 ): ?>
+            <div class="grupo">
+                <h3>Desafíos individuales</h3>
 
-        <div class="content">
-            <?php foreach ( $data["liquidaciones"][$data["mes"]][ "desafios" ][ "individual" ] as $desafio ): ?>
-                <div class="desafio">
-                    <?php if ( $desafio[ "mostrar" ] == "No" ): ?>
-
-                    <?php else: ?>
-                        <div class="item cumplimiento">Cumplimiento: <span
-                                class="data"><?php echo number_format( $desafio[ "cumplimiento" ], "2", ",", "." ) ?>
-                                %</span>
-                        </div>
-                    <?php endif ?>
-                    <div class="nombre"><?php echo $desafio[ "nombre" ] ?></div>
-                    <small><?php echo $desafio[ "descripcion" ] ?></small>
-                    <div class="item estrellas">Estrellas obtenidas <span
-                            class="data"><?php echo $desafio[ "estrellas" ] ?></span></div>
-                    <?php if ( $desafio[ "mostrar" ] == "No" ): ?>
-
-                    <?php else: ?>
-                        <div class="item">
-                            <?php if ( $desafio[ "unidades" ] == "Pesos" ): ?>
-                                Presupuesto: <span
-                                    class="data">$<?php echo number_format( $desafio[ "presupuesto" ], "0", ",", "." ) ?></span>
-                            <?php else: ?>
-                                Presupuesto: <span
-                                    class="data"><?php echo number_format( $desafio[ "presupuesto" ], "0", ",", "." ) . " " . $desafio[ "unidades" ] ?></span>
-                            <?php endif ?>
-                        </div>
-                    <?php endif ?>
-                    <div class="item">
-                        <?php if ( $desafio[ "unidades" ] == "Pesos" ): ?>
-                            Venta: <span
-                                class="data">$<?php echo number_format( $desafio[ "valor" ], "0", ",", "." ) ?></span>
-                        <?php else: ?>
-                            Valor: <span
-                                class="data"><?php echo number_format( $desafio[ "valor" ], "0", ",", "." ) . " " . $desafio[ "unidades" ] ?></span>
-                        <?php endif ?>
-                    </div>
-
-                </div>
-                <hr/>
-            <?php endforeach ?>
-        </div>
-    </div>
-<?php endif ?>
-
-<?php if ( isset( $data["liquidaciones"][$data["mes"]][ "desafios" ][ "grupal" ] ) && count( $data["liquidaciones"][$data["mes"]][ "desafios" ][ "grupal" ] ) > 0 ): ?>
-    <div class="grupo">
-        <h3>Desafíos grupales</h3>
-
-        <div class="content">
-            <?php foreach ( $data["liquidaciones"][$data["mes"]][ "desafios" ][ "grupal" ] as $desafio ): ?>
-                <div class="desafio">
-                    <?php if ( $desafio[ "mostrar" ] == "No" ): ?>
-
-                    <?php else: ?>
-                        <div class="item cumplimiento">Cumplimiento: <span
-                                class="data"><?php echo number_format( $desafio[ "cumplimiento" ], "2", ",", "." ) ?>
-                                %</span>
-                        </div>
-                    <?php endif ?>
-                    <div class="nombre"><?php echo $desafio[ "nombre" ] ?></div>
-                    <small><?php echo $desafio[ "descripcion" ] ?></small>
-                    <div class="item estrellas">Estrellas obtenidas <span
-                            class="data"><?php echo $desafio[ "estrellas" ] ?></span></div>
-                    <?php if ( $desafio[ "mostrar" ] == "No" ): ?>
-
-                    <?php else: ?>
-                        <div class="item">
-                            <?php if ( $desafio[ "unidades" ] == "Pesos" ): ?>
-                                Presupuesto: <span
-                                    class="data">$<?php echo number_format( $desafio[ "presupuesto" ], "0", ",", "." ) ?></span>
-                            <?php else: ?>
-                                Presupuesto: <span
-                                    class="data"><?php echo number_format( $desafio[ "presupuesto" ], "0", ",", "." ) . " " . $desafio[ "unidades" ] ?></span>
-                            <?php endif ?>
-                        </div>
-                    <?php endif ?>
-                    <div class="item">
-                        <?php if ( $desafio[ "unidades" ] == "Pesos" ): ?>
-                            Venta: <span
-                                class="data">$<?php echo number_format( $desafio[ "valor" ], "0", ",", "." ) ?></span>
-                        <?php else: ?>
-                            Valor: <span
-                                class="data"><?php echo number_format( $desafio[ "valor" ], "0", ",", "." ) . " " . $desafio[ "unidades" ] ?></span>
-                        <?php endif ?>
-                    </div>
-
-                </div>
-                <hr/>
-            <?php endforeach ?>
-        </div>
-    </div>
-<?php endif ?>
-<?php if ( isset( $data[ "vendedores" ] ) ): ?>
-    <?php if ( count( $data[ "vendedores" ] ) > 0 ): ?>
-        <?php $distribuidor = $data["distribuidores"][$data["did"]] ?>
-    <?php else: ?>
-        <?php $distribuidor = "Grupo de vendedores" ?>
-    <?php endif ?>
-    <div class="grupo">
-    <h3><?php echo $distribuidor ?></h3>
-
-    <div class="content">
-    <?php if ( count( $data[ "vendedores" ] ) > 0 ): ?>
-        <table width="100%">
-        <thead>
-        <tr>
-            <th>Cédula</th>
-            <th>Nombre y Perfil</th>
-            <th class="text-right">Estrellas</th>
-            <th class="text-right">Detalles</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php foreach ( $data[ "vendedores" ] as $vendedor ): ?>
-            <?php if($vendedor["distribuidor"]!=$data["distribuidores"][$data["did"]])continue;?>
-            <?php if ( $vendedor[ "distribuidor" ] != $distribuidor ): ?>
-                <?php $distribuidor = $vendedor[ "distribuidor" ] ?>
-                </tbody>
-                </table>
-                </div></div>
-                <div class="grupo">
-                <h3><?php echo $distribuidor ?></h3>
                 <div class="content">
+                    <?php foreach ( $data["liquidaciones"][$data["mes"]][ "desafios" ][ "individual" ] as $desafio ): ?>
+                        <div class="desafio">
+                            <?php if ( $desafio[ "mostrar" ] == "No" ): ?>
+
+                            <?php else: ?>
+                                <div class="item cumplimiento">Cumplimiento: <span
+                                        class="data"><?php echo number_format( $desafio[ "cumplimiento" ], "2", ",", "." ) ?>
+                                        %</span>
+                                </div>
+                            <?php endif ?>
+                            <div class="nombre"><?php echo $desafio[ "nombre" ] ?></div>
+                            <small><?php echo $desafio[ "descripcion" ] ?></small>
+                            <div class="item estrellas">Estrellas obtenidas <span
+                                    class="data"><?php echo $desafio[ "estrellas" ] ?></span></div>
+                            <?php if ( $desafio[ "mostrar" ] == "No" ): ?>
+
+                            <?php else: ?>
+                                <div class="item">
+                                    <?php if ( $desafio[ "unidades" ] == "Pesos" ): ?>
+                                        Presupuesto: <span
+                                            class="data">$<?php echo number_format( $desafio[ "presupuesto" ], "0", ",", "." ) ?></span>
+                                    <?php else: ?>
+                                        Presupuesto: <span
+                                            class="data"><?php echo number_format( $desafio[ "presupuesto" ], "0", ",", "." ) . " " . $desafio[ "unidades" ] ?></span>
+                                    <?php endif ?>
+                                </div>
+                            <?php endif ?>
+                            <div class="item">
+                                <?php if ( $desafio[ "unidades" ] == "Pesos" ): ?>
+                                    Venta: <span
+                                        class="data">$<?php echo number_format( $desafio[ "valor" ], "0", ",", "." ) ?></span>
+                                <?php else: ?>
+                                    Valor: <span
+                                        class="data"><?php echo number_format( $desafio[ "valor" ], "0", ",", "." ) . " " . $desafio[ "unidades" ] ?></span>
+                                <?php endif ?>
+                            </div>
+
+                        </div>
+                        <hr/>
+                    <?php endforeach ?>
+                </div>
+            </div>
+        <?php endif ?>
+
+        <?php if ( isset( $data["liquidaciones"][$data["mes"]][ "desafios" ][ "grupal" ] ) && count( $data["liquidaciones"][$data["mes"]][ "desafios" ][ "grupal" ] ) > 0 ): ?>
+            <div class="grupo">
+                <h3>Desafíos grupales</h3>
+
+                <div class="content">
+                    <?php foreach ( $data["liquidaciones"][$data["mes"]][ "desafios" ][ "grupal" ] as $desafio ): ?>
+                        <div class="desafio">
+                            <?php if ( $desafio[ "mostrar" ] == "No" ): ?>
+
+                            <?php else: ?>
+                                <div class="item cumplimiento">Cumplimiento: <span
+                                        class="data"><?php echo number_format( $desafio[ "cumplimiento" ], "2", ",", "." ) ?>
+                                        %</span>
+                                </div>
+                            <?php endif ?>
+                            <div class="nombre"><?php echo $desafio[ "nombre" ] ?></div>
+                            <small><?php echo $desafio[ "descripcion" ] ?></small>
+                            <div class="item estrellas">Estrellas obtenidas <span
+                                    class="data"><?php echo $desafio[ "estrellas" ] ?></span></div>
+                            <?php if ( $desafio[ "mostrar" ] == "No" ): ?>
+
+                            <?php else: ?>
+                                <div class="item">
+                                    <?php if ( $desafio[ "unidades" ] == "Pesos" ): ?>
+                                        Presupuesto: <span
+                                            class="data">$<?php echo number_format( $desafio[ "presupuesto" ], "0", ",", "." ) ?></span>
+                                    <?php else: ?>
+                                        Presupuesto: <span
+                                            class="data"><?php echo number_format( $desafio[ "presupuesto" ], "0", ",", "." ) . " " . $desafio[ "unidades" ] ?></span>
+                                    <?php endif ?>
+                                </div>
+                            <?php endif ?>
+                            <div class="item">
+                                <?php if ( $desafio[ "unidades" ] == "Pesos" ): ?>
+                                    Venta: <span
+                                        class="data">$<?php echo number_format( $desafio[ "valor" ], "0", ",", "." ) ?></span>
+                                <?php else: ?>
+                                    Valor: <span
+                                        class="data"><?php echo number_format( $desafio[ "valor" ], "0", ",", "." ) . " " . $desafio[ "unidades" ] ?></span>
+                                <?php endif ?>
+                            </div>
+
+                        </div>
+                        <hr/>
+                    <?php endforeach ?>
+                </div>
+            </div>
+        <?php endif ?>
+        <?php if ( isset( $data[ "vendedores" ] ) ): ?>
+            <?php if ( count( $data[ "vendedores" ] ) > 0 ): ?>
+                <?php $distribuidor = $data["distribuidores"][$data["did"]] ?>
+            <?php else: ?>
+                <?php $distribuidor = "Grupo de vendedores" ?>
+            <?php endif ?>
+            <div class="grupo">
+            <h3><?php echo $distribuidor ?></h3>
+
+            <div class="content">
+            <?php if ( count( $data[ "vendedores" ] ) > 0 ): ?>
                 <table width="100%">
                 <thead>
                 <tr>
@@ -203,109 +187,142 @@
                 </tr>
                 </thead>
                 <tbody>
-            <?php endif ?>
-            <tr>
-                <td><?php echo $vendedor[ "cedula" ] ?></td>
-                <td><?php echo $vendedor[ "nombre" ] ?><br>
-                    <small><strong><?php echo $vendedor[ "distribuidor" ] ?></strong>
-                        - <?php echo $vendedor[ "perfil" ] ?></small>
-                    <br/>
-                </td>
-                <td class="text-right"><?php echo number_format( $vendedor[ "estrellas" ], 0, ",", "." ) ?></td>
-                <td class="text-right">
-                    <button style="margin-bottom: 0"
-                            onclick="jQuery('tr.<?php echo $vendedor[ "cedula" ] ?>').toggle();"
-                            class="tiny success">Ver detalle
-                    </button>
-                </td>
-            </tr>
-            <?php if ( isset( $vendedor[ "desafios" ][ "individual" ] ) ): ?>
-                <?php foreach ( $vendedor[ "desafios" ][ "individual" ] as $desafio ): ?>
-                    <tr class="<?php echo $vendedor[ "cedula" ] ?> desafio" style="display: none;">
-                        <td>&nbsp;</td>
-                        <td>
-                            <div><?php echo $desafio[ "nombre" ] ?></div>
-                            <?php if ( $desafio[ "mostrar" ] == "No" ): ?>
-                            <?php else: ?>
-                                <div class="item" style="width: 350px;padding: 5px 0;">Cumplimiento: <span
-                                        class="data"><?php echo number_format( $desafio[ "cumplimiento" ], "2", ",", "." ) ?>
-                                        %</span></div>
-                            <?php endif ?>
-                            <?php if ( $desafio[ "mostrar" ] == "No" ): ?>
-                            <?php else: ?>
-                                <div class="item" style="width: 350px;padding: 5px 0;">
-                                    <?php if ( $desafio[ "unidades" ] == "Pesos" ): ?>
-                                        Presupuesto: <span
-                                            class="data">$<?php echo number_format( $desafio[ "presupuesto" ], "0", ",", "." ) ?></span>
-                                    <?php else: ?>
-                                        Presupuesto: <span
-                                            class="data"><?php echo number_format( $desafio[ "presupuesto" ], "0", ",", "." ) . " " . $desafio[ "unidades" ] ?></span>
-                                    <?php endif ?>
-                                </div>
-                            <?php endif ?>
-                            <div class="item" style="width: 350px;padding: 5px 0;">
-                                <?php if ( $desafio[ "unidades" ] == "Pesos" ): ?>
-                                    Venta: <span
-                                        class="data">$<?php echo number_format( $desafio[ "valor" ], "0", ",", "." ) ?></span>
-                                <?php else: ?>
-                                    Valor: <span
-                                        class="data"><?php echo number_format( $desafio[ "valor" ], "0", ",", "." ) . " " . $desafio[ "unidades" ] ?></span>
-                                <?php endif ?>
-                            </div>
+                <?php foreach ( $data[ "vendedores" ] as $vendedor ): ?>
+                    <?php if($vendedor["distribuidor"]!=$data["distribuidores"][$data["did"]])continue;?>
+                    <?php if ( $vendedor[ "distribuidor" ] != $distribuidor ): ?>
+                        <?php $distribuidor = $vendedor[ "distribuidor" ] ?>
+                        </tbody>
+                        </table>
+                        </div></div>
+                        <div class="grupo">
+                        <h3><?php echo $distribuidor ?></h3>
+                        <div class="content">
+                        <table width="100%">
+                        <thead>
+                        <tr>
+                            <th>Cédula</th>
+                            <th>Nombre y Perfil</th>
+                            <th class="text-right">Estrellas</th>
+                            <th class="text-right">Detalles</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                    <?php endif ?>
+                    <tr>
+                        <td><?php echo $vendedor[ "cedula" ] ?></td>
+                        <td><?php echo $vendedor[ "nombre" ] ?><br>
+                            <small><strong><?php echo $vendedor[ "distribuidor" ] ?></strong>
+                                - <?php echo $vendedor[ "perfil" ] ?></small>
+                            <br/>
                         </td>
-                        <td class="text-right"><?php echo $desafio[ "estrellas" ] ?></td>
-                        <td></td>
-                    </tr>
-                <?php endforeach ?>
-            <?php endif ?>
-            <?php if ( isset( $vendedor[ "desafios" ][ "grupal" ] ) ): ?>
-                <?php foreach ( $vendedor[ "desafios" ][ "grupal" ] as $desafio ): ?>
-                    <tr class="<?php echo $vendedor[ "cedula" ] ?> desafio" style="display: none;">
-                        <td>&nbsp;</td>
-                        <td>
-                            <div><?php echo $desafio[ "nombre" ] ?> <strong>(Grupal)</strong></div>
-                            <?php if ( $desafio[ "mostrar" ] == "No" ): ?>
-                            <?php else: ?>
-                                <div class="item" style="width: 350px;padding: 5px 0;">Cumplimiento: <span
-                                        class="data"><?php echo number_format( $desafio[ "cumplimiento" ], "2", ",", "." ) ?>
-                                        %</span></div>
-                            <?php endif ?>
-                            <?php if ( $desafio[ "mostrar" ] == "No" ): ?>
-                            <?php else: ?>
-                                <div class="item" style="width: 350px;padding: 5px 0;">
-                                    <?php if ( $desafio[ "unidades" ] == "Pesos" ): ?>
-                                        Presupuesto: <span
-                                            class="data">$<?php echo number_format( $desafio[ "presupuesto" ], "0", ",", "." ) ?></span>
-                                    <?php else: ?>
-                                        Presupuesto: <span
-                                            class="data"><?php echo number_format( $desafio[ "presupuesto" ], "0", ",", "." ) . " " . $desafio[ "unidades" ] ?></span>
-                                    <?php endif ?>
-                                </div>
-                            <?php endif ?>
-                            <div class="item" style="width: 350px;padding: 5px 0;">
-                                <?php if ( $desafio[ "unidades" ] == "Pesos" ): ?>
-                                    Venta: <span
-                                        class="data">$<?php echo number_format( $desafio[ "valor" ], "0", ",", "." ) ?></span>
-                                <?php else: ?>
-                                    Valor: <span
-                                        class="data"><?php echo number_format( $desafio[ "valor" ], "0", ",", "." ) . " " . $desafio[ "unidades" ] ?></span>
-                                <?php endif ?>
-                            </div>
+                        <td class="text-right"><?php echo number_format( $vendedor[ "estrellas" ], 0, ",", "." ) ?></td>
+                        <td class="text-right">
+                            <button style="margin-bottom: 0"
+                                    onclick="jQuery('tr.<?php echo $vendedor[ "cedula" ] ?>').toggle();"
+                                    class="tiny success">Ver detalle
+                            </button>
                         </td>
-                        <td class="text-right"><?php echo $desafio[ "estrellas" ] ?></td>
-                        <td></td>
                     </tr>
+                    <?php if ( isset( $vendedor[ "desafios" ][ "individual" ] ) ): ?>
+                        <?php foreach ( $vendedor[ "desafios" ][ "individual" ] as $desafio ): ?>
+                            <tr class="<?php echo $vendedor[ "cedula" ] ?> desafio" style="display: none;">
+                                <td>&nbsp;</td>
+                                <td>
+                                    <div><?php echo $desafio[ "nombre" ] ?></div>
+                                    <?php if ( $desafio[ "mostrar" ] == "No" ): ?>
+                                    <?php else: ?>
+                                        <div class="item" style="width: 350px;padding: 5px 0;">Cumplimiento: <span
+                                                class="data"><?php echo number_format( $desafio[ "cumplimiento" ], "2", ",", "." ) ?>
+                                                %</span></div>
+                                    <?php endif ?>
+                                    <?php if ( $desafio[ "mostrar" ] == "No" ): ?>
+                                    <?php else: ?>
+                                        <div class="item" style="width: 350px;padding: 5px 0;">
+                                            <?php if ( $desafio[ "unidades" ] == "Pesos" ): ?>
+                                                Presupuesto: <span
+                                                    class="data">$<?php echo number_format( $desafio[ "presupuesto" ], "0", ",", "." ) ?></span>
+                                            <?php else: ?>
+                                                Presupuesto: <span
+                                                    class="data"><?php echo number_format( $desafio[ "presupuesto" ], "0", ",", "." ) . " " . $desafio[ "unidades" ] ?></span>
+                                            <?php endif ?>
+                                        </div>
+                                    <?php endif ?>
+                                    <div class="item" style="width: 350px;padding: 5px 0;">
+                                        <?php if ( $desafio[ "unidades" ] == "Pesos" ): ?>
+                                            Venta: <span
+                                                class="data">$<?php echo number_format( $desafio[ "valor" ], "0", ",", "." ) ?></span>
+                                        <?php else: ?>
+                                            Valor: <span
+                                                class="data"><?php echo number_format( $desafio[ "valor" ], "0", ",", "." ) . " " . $desafio[ "unidades" ] ?></span>
+                                        <?php endif ?>
+                                    </div>
+                                </td>
+                                <td class="text-right"><?php echo $desafio[ "estrellas" ] ?></td>
+                                <td></td>
+                            </tr>
+                        <?php endforeach ?>
+                    <?php endif ?>
+                    <?php if ( isset( $vendedor[ "desafios" ][ "grupal" ] ) ): ?>
+                        <?php foreach ( $vendedor[ "desafios" ][ "grupal" ] as $desafio ): ?>
+                            <tr class="<?php echo $vendedor[ "cedula" ] ?> desafio" style="display: none;">
+                                <td>&nbsp;</td>
+                                <td>
+                                    <div><?php echo $desafio[ "nombre" ] ?> <strong>(Grupal)</strong></div>
+                                    <?php if ( $desafio[ "mostrar" ] == "No" ): ?>
+                                    <?php else: ?>
+                                        <div class="item" style="width: 350px;padding: 5px 0;">Cumplimiento: <span
+                                                class="data"><?php echo number_format( $desafio[ "cumplimiento" ], "2", ",", "." ) ?>
+                                                %</span></div>
+                                    <?php endif ?>
+                                    <?php if ( $desafio[ "mostrar" ] == "No" ): ?>
+                                    <?php else: ?>
+                                        <div class="item" style="width: 350px;padding: 5px 0;">
+                                            <?php if ( $desafio[ "unidades" ] == "Pesos" ): ?>
+                                                Presupuesto: <span
+                                                    class="data">$<?php echo number_format( $desafio[ "presupuesto" ], "0", ",", "." ) ?></span>
+                                            <?php else: ?>
+                                                Presupuesto: <span
+                                                    class="data"><?php echo number_format( $desafio[ "presupuesto" ], "0", ",", "." ) . " " . $desafio[ "unidades" ] ?></span>
+                                            <?php endif ?>
+                                        </div>
+                                    <?php endif ?>
+                                    <div class="item" style="width: 350px;padding: 5px 0;">
+                                        <?php if ( $desafio[ "unidades" ] == "Pesos" ): ?>
+                                            Venta: <span
+                                                class="data">$<?php echo number_format( $desafio[ "valor" ], "0", ",", "." ) ?></span>
+                                        <?php else: ?>
+                                            Valor: <span
+                                                class="data"><?php echo number_format( $desafio[ "valor" ], "0", ",", "." ) . " " . $desafio[ "unidades" ] ?></span>
+                                        <?php endif ?>
+                                    </div>
+                                </td>
+                                <td class="text-right"><?php echo $desafio[ "estrellas" ] ?></td>
+                                <td></td>
+                            </tr>
+                        <?php endforeach ?>
+                    <?php endif ?>
                 <?php endforeach ?>
-            <?php endif ?>
-        <?php endforeach ?>
-        </tbody>
-        </table>
-    <?php else: ?>
-        No hay vendedores activos a su cargo.
-    <?php endif; ?>
+                </tbody>
+                </table>
+            <?php else: ?>
+                No hay vendedores activos a su cargo.
+            <?php endif; ?>
+            </div>
+            </div>
+        <?php endif ?>
     </div>
+    <div class="columns medium-4">
+        <div class="grupo">
+            <h3>Presentación</h3>
+            <a target="_blank"
+               href="<?php echo file_create_url( $data[ 'presentaciones' ][$data['did']]->field_documento_adjunto[ 'und' ][ 0 ][ 'uri' ] ) ?>">
+                <img
+                    src="<?php echo image_style_url( 'escalar_a_341', $data[ 'presentaciones' ][$data['did']]->field_image[ 'und' ][ 0 ][ 'uri' ] ) ?>"/>
+            </a>
+        </div>
     </div>
-<?php endif ?>
+</div>
+
 <!--<pre>-->
 <!--    --><?php
 //    print_r( $data );
