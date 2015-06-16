@@ -68,7 +68,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="columns medium-12">
+    <div class="columns medium-11">
         <?php if ( isset( $data["liquidaciones"][$data["mes"]][ "desafios" ][ "individual" ] ) && count( $data["liquidaciones"][$data["mes"]][ "desafios" ][ "individual" ] ) > 0 ): ?>
             <div class="grupo">
                 <h3>Desafíos individuales</h3>
@@ -309,18 +309,31 @@
             <?php endif; ?>
             </div>
             </div>
-        <?php endif ?>
+        <?php endif; ?>
     </div>
-    <div class="columns medium-4">
-        <div class="grupo">
-            <h3>Presentación</h3>
-            <a target="_blank"
-               href="<?php echo file_create_url( $data[ 'presentaciones' ][$data['did']]->field_documento_adjunto[ 'und' ][ 0 ][ 'uri' ] ) ?>">
-                <img
-                    src="<?php echo image_style_url( 'escalar_a_341', $data[ 'presentaciones' ][$data['did']]->field_image[ 'und' ][ 0 ][ 'uri' ] ) ?>"/>
-            </a>
+    <?php if($data['presentaciones'][$data['did']]):?>
+        <div class="columns medium-5">
+            <div class="grupo">
+                <h3>Presentación</h3>
+                <a target="_blank"
+                   href="<?php echo file_create_url( $data[ 'presentaciones' ][$data['did']]->field_documento_adjunto[ 'und' ][ 0 ][ 'uri' ] ) ?>">
+                    <img
+                        src="<?php echo image_style_url( 'escalar_a_341', $data[ 'presentaciones' ][$data['did']]->field_image[ 'und' ][ 0 ][ 'uri' ] ) ?>"/>
+                </a>
+            </div>
         </div>
-    </div>
+    <?php elseif( $data['presentacion'] ):?>
+        <div class="columns medium-5">
+            <div class="grupo">
+                <h3>Presentación</h3>
+                <a target="_blank"
+                   href="<?php echo file_create_url( $data[ 'presentacion' ]->field_documento_adjunto[ 'und' ][ 0 ][ 'uri' ] ) ?>">
+                    <img
+                        src="<?php echo image_style_url( 'escalar_a_341', $data[ 'presentacion' ]->field_image[ 'und' ][ 0 ][ 'uri' ] ) ?>"/>
+                </a>
+            </div>
+        </div>
+    <?php endif;?>
 </div>
 
 <!--<pre>-->

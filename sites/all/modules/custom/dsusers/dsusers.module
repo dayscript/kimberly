@@ -108,6 +108,19 @@ function dsusers_desafios_block()
         $datos[ 'nombre' ] = $us->field_nombres[ 'und' ][ 0 ][ 'value' ] . ' ' . $us->field_apellidos[ 'und' ][ 0 ][ 'value' ];
         $datos[ 'uid' ] = $us->uid;
         $datos[ 'cedula' ] = $us->name;
+        $query = new EntityFieldQuery();
+        $result = $query->entityCondition( 'entity_type', 'node' )
+            ->entityCondition( 'bundle', 'presentacion' )
+            ->propertyCondition( 'status', 1 )
+            ->fieldCondition( 'field_mecanica', 'tid', $us->field_mecanica['und'][0]['tid'] )
+            ->execute();
+        if ( isset( $result[ 'node' ] ) )
+        {
+            $nids = array_keys( $result[ 'node' ] );
+            $presentaciones = entity_load( "node", $nids );
+            $datos["presentacion"] = $presentaciones[ $nids[ 0 ] ];
+        }
+
         if ( isset( $us->field_perfil[ 'und' ] ) )
         {
             $perfil = taxonomy_term_load( $us->field_perfil[ 'und' ][ 0 ][ 'tid' ] );
