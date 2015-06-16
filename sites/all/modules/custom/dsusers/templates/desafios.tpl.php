@@ -7,10 +7,24 @@
     <div class="cedula">Cédula:
         <small><?php echo $data[ "cedula" ] ?></small>
     </div>
+    <?php if ( isset($data["cuotas"]) && ($data[ "perfil" ] == "Vendedor" || $data[ "perfil" ] == "Jefe de Ventas") ): ?>
+        <div class="grupo cuotas">
+            <h3><?php echo $data["cuotas"]["titulo"]?></h3>
+            <?php foreach($data["cuotas"]["datos"] as $desafio):?>
+                <?php if($desafio[ "presupuesto" ]>0):?>
+                    <div class="cuota row">
+                        <div class="nombre columns small-10"><?php echo $desafio[ "nombre" ] ?></div>
+                        <div class="columns small-6"> <?php echo number_format( $desafio[ "presupuesto" ], "0", ",", "." ) . " " . $desafio[ "unidades" ] ?></div>
+
+                    </div>
+                <?php endif?>
+            <?php endforeach?>
+        </div>
+    <?php endif ?>
 </div>
 <?php if ( $data[ "perfil" ] == "Vendedor" || $data[ "perfil" ] == "Jefe de Ventas" ): ?>
     <div class="acumulado">
-        <h3>Mi Acumulado (<?php echo $data[ "mes" ] ?>)</h3>
+        <h3>Mi Acumulado</h3>
 
         <div class="estrellas"><?php echo number_format( $data[ "estrellas" ], 0, ",", "." ) ?></div>
     </div>
@@ -31,23 +45,30 @@
                 </select>
             </div>
         <?php endif ?>
-        <div class="meses">Escoja un periodo a continuación:
-            <select name="mes" id="mes"
-                    onchange="document.location.href='/desafios?cedula=<?php echo $data[ "cedula" ] ?>&did=<?php echo $data[ "did" ] ?>&mes='+this.options[this.selectedIndex].value;">
-                <?php foreach ( $data[ "meses" ] as $mes ): ?>
-                    <option <?php echo ( $mes == $data[ "mes" ] ) ? "selected" : "" ?>
-                        value="<?php echo $mes ?>"><?php echo $mes ?></option>
-                <?php endforeach ?>
-            </select>
+        <div class="row">
+            <div class="meses small-12 columns">Escoja un periodo a continuación:
+                <select name="mes" id="mes"
+                        onchange="document.location.href='/desafios?cedula=<?php echo $data[ "cedula" ] ?>&did=<?php echo $data[ "did" ] ?>&mes='+this.options[this.selectedIndex].value;">
+                    <?php foreach ( $data[ "meses" ] as $mes ): ?>
+                        <option <?php echo ( $mes == $data[ "mes" ] ) ? "selected" : "" ?>
+                            value="<?php echo $mes ?>"><?php echo $mes ?></option>
+                    <?php endforeach ?>
+                </select>
+            </div>
+            <div class="meses small-4 columns right" style="font-size: 1.2rem;">
+                Total de Estrellas <br/>
+                <strong><?php echo $data["mes"]?></strong>:
+                <span class="red"><?php echo number_format( $data["liquidaciones"][$data["mes"]][ "estrellas" ], 0, ",", "." ) ?></span>
+            </div>
         </div>
     </div>
 </div>
-<?php if ( isset( $data[ "desafios" ][ "individual" ] ) && count( $data[ "desafios" ][ "individual" ] ) > 0 ): ?>
+<?php if ( isset( $data["liquidaciones"][$data["mes"]][ "desafios" ][ "individual" ] ) && count( $data["liquidaciones"][$data["mes"]][ "desafios" ][ "individual" ] ) > 0 ): ?>
     <div class="grupo">
         <h3>Desafíos individuales</h3>
 
         <div class="content">
-            <?php foreach ( $data[ "desafios" ][ "individual" ] as $desafio ): ?>
+            <?php foreach ( $data["liquidaciones"][$data["mes"]][ "desafios" ][ "individual" ] as $desafio ): ?>
                 <div class="desafio">
                     <?php if ( $desafio[ "mostrar" ] == "No" ): ?>
 
@@ -91,12 +112,12 @@
     </div>
 <?php endif ?>
 
-<?php if ( isset( $data[ "desafios" ][ "grupal" ] ) && count( $data[ "desafios" ][ "grupal" ] ) > 0 ): ?>
+<?php if ( isset( $data["liquidaciones"][$data["mes"]][ "desafios" ][ "grupal" ] ) && count( $data["liquidaciones"][$data["mes"]][ "desafios" ][ "grupal" ] ) > 0 ): ?>
     <div class="grupo">
         <h3>Desafíos grupales</h3>
 
         <div class="content">
-            <?php foreach ( $data[ "desafios" ][ "grupal" ] as $desafio ): ?>
+            <?php foreach ( $data["liquidaciones"][$data["mes"]][ "desafios" ][ "grupal" ] as $desafio ): ?>
                 <div class="desafio">
                     <?php if ( $desafio[ "mostrar" ] == "No" ): ?>
 

@@ -67,8 +67,8 @@ function dsusers_desafios_block()
     drupal_add_js( "https://code.highcharts.com/highcharts.js", 'external' );
     global $user;
     $datos = array();
-    $datos[ 'meses' ] = array( "2015-04", "2015-03" );
-    $datos[ 'mes' ] = "2015-04";
+    $meses = array( "2015-06","2015-05","2015-04", "2015-03" );
+    //$datos[ 'mes' ] = "2015-04";
     if ( isset( $_REQUEST[ 'mes' ] ) ) $datos[ 'mes' ] = $_REQUEST[ "mes" ];
     $datos[ "estrellas" ] = 0;
     $datos[ "desafios" ] = array();
@@ -85,6 +85,26 @@ function dsusers_desafios_block()
 
     if ( $us->uid != 0 )
     {
+        $ciudad = taxonomy_term_load( $us->field_ciudad[ 'und' ][ 0 ][ 'tid' ] );
+        $datos[ 'ciudad' ] = $ciudad->name;
+        foreach($meses as $mes){
+            $user_data = get_user_data( $us->uid, $mes );
+            $datos['meses'][] = $mes;
+            if(count($user_data[ "desafios" ])>0){
+                if(!isset($datos['mes']))$datos['mes'] = $mes;
+                if(!isset($datos["cuotas"])){
+                    date_default_timezone_set("America/Bogota");
+                    $nombre_mes = array("01"=>"Enero","02"=>"Febrero","03"=>"Marzo","04"=>"Abril","05"=>"Mayo","06"=>"Junio","07"=>"Julio",
+                                        "08"=>"Agosto","09"=>"Septiembre","10"=>"Octubre","11"=>"Noviembre","12"=>"Diciembre");
+                    $datos["cuotas"]["titulo"] = "Cuotas para " . $nombre_mes[date("m",strtotime($mes))];
+                    $datos["cuotas"]["datos"] = array_merge($user_data[ "desafios" ]["individual"], $user_data[ "desafios" ]["grupal"]);
+                }
+                $datos[ "liquidaciones" ][$mes]['desafios'] = $user_data[ "desafios" ];
+                $datos[ "liquidaciones" ][$mes]['estrellas'] = $user_data[ "estrellas" ];
+                $datos["estrellas"] += $user_data[ "estrellas" ];
+            }
+        }
+
         $datos[ 'nombre' ] = $us->field_nombres[ 'und' ][ 0 ][ 'value' ] . ' ' . $us->field_apellidos[ 'und' ][ 0 ][ 'value' ];
         $datos[ 'uid' ] = $us->uid;
         $datos[ 'cedula' ] = $us->name;
@@ -149,11 +169,9 @@ function dsusers_desafios_block()
                 );
             }
         }
-        $ciudad = taxonomy_term_load( $us->field_ciudad[ 'und' ][ 0 ][ 'tid' ] );
-        $datos[ 'ciudad' ] = $ciudad->name;
-        $user_data = get_user_data( $us->uid, $datos[ 'mes' ] );
-        $datos[ "desafios" ] = $user_data[ "desafios" ];
-        $datos[ "estrellas" ] = $user_data[ "estrellas" ];
+        //$user_data = get_user_data( $us->uid, $datos[ 'mes' ] );
+        //$datos[ "desafios" ] = $user_data[ "desafios" ];
+        //$datos[ "estrellas" ] = $user_data[ "estrellas" ];
     }
 
     return $datos;
