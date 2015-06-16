@@ -1,34 +1,36 @@
-<div class="info">
-    <div><?php echo $data[ "nombre" ] ?></div>
-    <div class="perfil"><?php echo $data[ "perfil" ] ?></div>
-    <div class="ciudad">Ciudad:
-        <small><?php echo $data[ "ciudad" ] ?></small>
-    </div>
-    <div class="cedula">Cédula:
-        <small><?php echo $data[ "cedula" ] ?></small>
-    </div>
-    <?php if ( isset($data["cuotas"]) && ($data[ "perfil" ] == "Vendedor" || $data[ "perfil" ] == "Jefe de Ventas") ): ?>
-        <div class="grupo cuotas">
-            <h3><?php echo $data["cuotas"]["titulo"]?></h3>
-            <?php foreach($data["cuotas"]["datos"] as $desafio):?>
-                <?php if($desafio[ "presupuesto" ]>0):?>
-                    <div class="cuota row">
-                        <div class="nombre columns small-10"><?php echo $desafio[ "nombre" ] ?></div>
-                        <div class="columns small-6"> <?php echo number_format( $desafio[ "presupuesto" ], "0", ",", "." ) . " " . $desafio[ "unidades" ] ?></div>
+<div class="row">
+    <div class="info columns small-10">
+        <div><?php echo $data[ "nombre" ] ?></div>
+        <div class="perfil"><?php echo $data[ "perfil" ] ?></div>
+        <div class="ciudad">Ciudad:
+            <small><?php echo $data[ "ciudad" ] ?></small>
+        </div>
+        <div class="cedula">Cédula:
+            <small><?php echo $data[ "cedula" ] ?></small>
+        </div>
+        <?php if ( isset($data["cuotas"]) && ($data[ "perfil" ] == "Vendedor" || $data[ "perfil" ] == "Jefe de Ventas") ): ?>
+            <div class="grupo cuotas">
+                <h3><?php echo $data["cuotas"]["titulo"]?></h3>
+                <?php foreach($data["cuotas"]["datos"] as $desafio):?>
+                    <?php if($desafio[ "presupuesto" ]>0):?>
+                        <div class="cuota row">
+                            <div class="nombre columns small-10"><?php echo $desafio[ "nombre" ] ?></div>
+                            <div class="columns small-6"> <?php echo number_format( $desafio[ "presupuesto" ], "0", ",", "." ) . " " . $desafio[ "unidades" ] ?></div>
 
-                    </div>
-                <?php endif?>
-            <?php endforeach?>
+                        </div>
+                    <?php endif?>
+                <?php endforeach?>
+            </div>
+        <?php endif ?>
+    </div>
+    <?php if ( $data[ "perfil" ] == "Vendedor" || $data[ "perfil" ] == "Jefe de Ventas" ): ?>
+        <div class="acumulado columns small-6">
+            <h3>Mi Acumulado</h3>
+
+            <div class="estrellas"><?php echo number_format( $data[ "estrellas" ], 0, ",", "." ) ?></div>
         </div>
     <?php endif ?>
 </div>
-<?php if ( $data[ "perfil" ] == "Vendedor" || $data[ "perfil" ] == "Jefe de Ventas" ): ?>
-    <div class="acumulado">
-        <h3>Mi Acumulado</h3>
-
-        <div class="estrellas"><?php echo number_format( $data[ "estrellas" ], 0, ",", "." ) ?></div>
-    </div>
-<?php endif ?>
 <hr/>
 <div class="grupo">
     <h3>Filtros del reporte</h3>
