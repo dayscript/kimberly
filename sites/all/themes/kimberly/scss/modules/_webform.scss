@@ -1,6 +1,8 @@
-.webform-client-form{
+.webform-client-form,
+.webform-confirmation{
   padding: 20px;
   background: white;
+  color: $text-darkgray;
   .webform-submit{
     color: #ffffff;
     background-color: #008CBA;
