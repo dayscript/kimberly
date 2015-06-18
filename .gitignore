@@ -4,9 +4,3 @@ sites/*/settings*.php
 # Ignore paths that contain user-generated content.
 sites/*/files
 sites/*/private
-<<<<<<< HEAD
-=======
-
-.htaccess
-.idea/*
->>>>>>> 480ce65860b4ab4d4900e209c754a04d182d5039
