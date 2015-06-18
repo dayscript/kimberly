@@ -16,3 +16,8 @@
     display: inline;
   }
 }
+.not-logged-in.section-dia-del-padre {
+  .node-webform{
+    display: none;
+  }
+}
