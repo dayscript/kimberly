@@ -15,7 +15,13 @@
                     <?php if($desafio[ "presupuesto" ]>0):?>
                         <div class="cuota row">
                             <div class="nombre columns small-10"><?php echo $desafio[ "nombre" ] ?></div>
-                            <div class="columns small-6"> <?php echo number_format( $desafio[ "presupuesto" ], "0", ",", "." ) . " " . $desafio[ "unidades" ] ?></div>
+                            <div class="columns small-6">
+                                <?php if($desafio[ "unidades"] == "Pesos"):?>
+                                    $<?php echo number_format( $desafio[ "presupuesto" ], "0", ",", "." ) ?>
+                                <?php else:?>
+                                    <?php echo number_format( $desafio[ "presupuesto" ], "0", ",", "." ) . " " . $desafio[ "unidades" ] ?>
+                                <?php endif?>
+                            </div>
 
                         </div>
                     <?php endif?>
