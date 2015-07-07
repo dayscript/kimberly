@@ -63,7 +63,7 @@
         $output .= '<div id="ContainerMessage" class="messages-poll">';
         $output .=  '<h2>' .t('Gracias por tus respuestas') . '</h2>';
         
-        if( $points >= 50 ){
+        if( $points == 60 ){
           $output .=  '<h2>' .t('Haz acertado en todas las preguntas') . '<br/>' . 
               t('Tendrás 50 estrellas adicionales por tu desempeño') . '</h2>';
         } else {
@@ -173,7 +173,7 @@
 
     $userAnswerWrapper->title        = sprintf( 'Respuesta del usuario: %s', $user->name );
     $userAnswerWrapper->field_points = $points;
-    $userAnswerWrapper->field_goal   = ($points > 50) ? 'si' : 'no';
+    $userAnswerWrapper->field_goal   = ($points == 60) ? 'si' : 'no';
     $userAnswerWrapper->save();
 
   }
