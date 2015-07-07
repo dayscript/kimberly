@@ -153,7 +153,6 @@
         
         foreach ( $userAnswers as $answer ) {
 
-            $questions[]     = array( 'target_id' => intval($answer['nid']) );
             $questionWrapper = entity_metadata_wrapper( 'node', $answer['nid'] );
 
             if ( $answer['selected_answer'] == $questionWrapper->field_correct_answer->value() ) {
@@ -162,9 +161,9 @@
 
         }
         
-        $userAnswerWrapper->title          = sprintf( 'Respuesta del usuario: %s', $user->name );
-        $userAnswerWrapper->field_question = $questions;
-        $userAnswerWrapper->field_points   = $points;
+        $userAnswerWrapper->title        = sprintf( 'Respuesta del usuario: %s', $user->name );
+        $userAnswerWrapper->field_points = $points;
+        $userAnswerWrapper->field_goal   = ($points > 50) ? 'si' : 'no';
         $userAnswerWrapper->save();
         
     }
