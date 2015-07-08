@@ -14,6 +14,13 @@ function kimberly_features_block_poll_ctools_plugin_api($module = NULL, $api = N
 }
 
 /**
+ * Implements hook_views_api().
+ */
+function kimberly_features_block_poll_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
+}
+
+/**
  * Implements hook_node_info().
  */
 function kimberly_features_block_poll_node_info() {

@@ -158,7 +158,7 @@ function kimberly_features_block_poll_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 8,
+      'weight' => 7,
     ),
   );
 
@@ -272,7 +272,7 @@ function kimberly_features_block_poll_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'options_select',
-      'weight' => 9,
+      'weight' => 8,
     ),
   );
 
@@ -369,7 +369,7 @@ function kimberly_features_block_poll_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 10,
+      'weight' => 9,
     ),
   );
 
@@ -408,8 +408,12 @@ function kimberly_features_block_poll_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_video_article',
     'label' => 'video ',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
+      'allowed_providers' => array(
+        0 => 'youtube',
+        1 => 'vimeo',
+      ),
       'description_field' => 0,
       'description_length' => 128,
       'user_register_form' => FALSE,
@@ -559,6 +563,44 @@ function kimberly_features_block_poll_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-user_answers-field_goal'
+  $field_instances['node-user_answers-field_goal'] = array(
+    'bundle' => 'user_answers',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 4,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_goal',
+    'label' => 'Objetivo alcanzado',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 3,
+    ),
+  );
+
   // Exported field_instance: 'node-user_answers-field_points'
   $field_instances['node-user_answers-field_points'] = array(
     'bundle' => 'user_answers',
@@ -596,7 +638,7 @@ function kimberly_features_block_poll_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 3,
+      'weight' => 2,
     ),
   );
 
@@ -640,7 +682,7 @@ function kimberly_features_block_poll_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete',
-      'weight' => 2,
+      'weight' => 1,
     ),
   );
 
@@ -657,6 +699,7 @@ function kimberly_features_block_poll_field_default_field_instances() {
   t('Enter a comma-separated list of words to describe your content.');
   t('Etiquetas');
   t('Imagen');
+  t('Objetivo alcanzado');
   t('Preguntas');
   t('Puede escribir un subtitulo para este contenido');
   t('Puntos');
