@@ -93,7 +93,6 @@ function dsusers_desafios_block()
             if(count($user_data[ "desafios" ])>0){
                 if(!isset($datos['mes']))$datos['mes'] = $mes;
                 if(!isset($datos["cuotas"])){
-                    echo "Mes:".$mes;
                     date_default_timezone_set("America/Bogota");
                     $nombre_mes = array("01"=>"Enero","02"=>"Febrero","03"=>"Marzo","04"=>"Abril","05"=>"Mayo","06"=>"Junio","07"=>"Julio",
                                         "08"=>"Agosto","09"=>"Septiembre","10"=>"Octubre","11"=>"Noviembre","12"=>"Diciembre");
@@ -220,6 +219,7 @@ function get_user_data( $user_id, $month = "2015-04" )
         ->execute();
     if ( isset( $result[ 'node' ] ) )
     {
+        echo " Si hay.";
 
         $nids = array_keys( $result[ 'node' ] );
         $liquidaciones = entity_load( "node", $nids );
