@@ -208,7 +208,6 @@ function dsusers_desafios_block()
 
 function get_user_data( $user_id, $month = "2015-04" )
 {
-    echo "<br>Mes:".$month;
     $datos = array( "desafios" => array(), "estrellas" => 0 );
     $query = new EntityFieldQuery();
     $result = $query->entityCondition( 'entity_type', 'node' )
@@ -219,8 +218,6 @@ function get_user_data( $user_id, $month = "2015-04" )
         ->execute();
     if ( isset( $result[ 'node' ] ) )
     {
-        echo " Si hay.";
-
         $nids = array_keys( $result[ 'node' ] );
         $liquidaciones = entity_load( "node", $nids );
         foreach ( $liquidaciones as $nid => $liquidacion )
