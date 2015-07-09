@@ -88,7 +88,6 @@ function dsusers_desafios_block()
         $ciudad = taxonomy_term_load( $us->field_ciudad[ 'und' ][ 0 ][ 'tid' ] );
         $datos[ 'ciudad' ] = $ciudad->name;
         foreach($meses as $mes){
-            echo "Mes:".$mes;
             $user_data = get_user_data( $us->uid, $mes );
             $datos['meses'][] = $mes;
             if(count($user_data[ "desafios" ])>0){
@@ -210,6 +209,7 @@ function dsusers_desafios_block()
 
 function get_user_data( $user_id, $month = "2015-04" )
 {
+    echo "<br>Mes:".$month;
     $datos = array( "desafios" => array(), "estrellas" => 0 );
     $query = new EntityFieldQuery();
     $result = $query->entityCondition( 'entity_type', 'node' )
