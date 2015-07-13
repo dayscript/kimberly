@@ -55,7 +55,7 @@
       $dateCreated = explode('/',Date('m/d/y', $answer->created));
       $dateNow     = explode('/',Date('m/d/y'));
       
-      if( $dateNow[0] >= $dateCreated[0] && $dateNow[1] <= $dateCreated[1] ){
+      if( $dateNow[0] >= $dateCreated[0] && $dateNow[1] > $dateCreated[1] ){
         
         $points  = (int) $answer->field_points['und'][0]['value'];
         $output  = NULL;
