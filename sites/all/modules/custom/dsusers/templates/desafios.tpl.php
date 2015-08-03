@@ -142,7 +142,9 @@
                                 </div>
                             <?php endif ?>
                             <div class="nombre"><?php echo $desafio[ "nombre" ] ?></div>
-                            <small><?php echo $desafio[ "descripcion" ] ?></small>
+                            <?php if($desafio[ "descripcion" ]!=""):?>
+                                <small><strong>*</strong> <?php echo $desafio[ "descripcion" ] ?></small>
+                            <?php endif ?>
                             <div class="item estrellas">Estrellas obtenidas <span
                                     class="data"><?php echo $desafio[ "estrellas" ] ?></span></div>
                             <?php if ( $desafio[ "mostrar" ] == "No" ): ?>
@@ -168,6 +170,25 @@
                                 <?php endif ?>
                             </div>
 
+                        </div>
+                        <hr/>
+                    <?php endforeach ?>
+                </div>
+            </div>
+        <?php endif ?>
+        <?php if ( isset( $data["liquidaciones"][$data["mes"]][ "desafios" ][ "otros" ] ) && count( $data["liquidaciones"][$data["mes"]][ "desafios" ][ "otros" ] ) > 0 ): ?>
+            <div class="grupo">
+                <h3>Otros Reconocimientos</h3>
+                <div class="content">
+                    <?php foreach ( $data["liquidaciones"][$data["mes"]][ "desafios" ][ "otros" ] as $desafio ): ?>
+                        <div class="desafio">
+                            <div class="nombre"><?php echo $desafio[ "nombre" ] ?></div>
+                            <?php if($desafio[ "descripcion" ]!=""):?>
+                                <small><strong>*</strong> <?php echo $desafio[ "descripcion" ] ?></small>
+                            <?php endif ?>
+                            <div class="item estrellas">
+                                Estrellas obtenidas <span class="data"><?php echo $desafio[ "estrellas" ] ?></span>
+                            </div>
                         </div>
                         <hr/>
                     <?php endforeach ?>
