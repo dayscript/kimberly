@@ -91,7 +91,9 @@
                                 </div>
                             <?php endif ?>
                             <div class="nombre"><?php echo $desafio[ "nombre" ] ?></div>
-                            <small><strong>*</strong> <?php echo $desafio[ "descripcion" ] ?></small>
+                            <?php if($desafio[ "descripcion" ] != ""):?>
+                                <small><strong>*</strong> <?php echo $desafio[ "descripcion" ] ?></small>
+                            <?php endif ?>
                             <div class="item estrellas">Estrellas obtenidas <span
                                     class="data"><?php echo $desafio[ "estrellas" ] ?></span></div>
                             <?php if ( $desafio[ "mostrar" ] == "No" ): ?>
