@@ -182,13 +182,10 @@
                 <div class="content">
                     <?php foreach ( $data["liquidaciones"][$data["mes"]][ "desafios" ][ "otros" ] as $desafio ): ?>
                         <div class="desafio">
-                            <div class="nombre"><?php echo $desafio[ "nombre" ] ?></div>
-                            <?php if($desafio[ "descripcion" ]!=""):?>
-                                <small><strong>*</strong> <?php echo $desafio[ "descripcion" ] ?></small>
-                            <?php endif ?>
                             <div class="item estrellas">
                                 Estrellas obtenidas <span class="data"><?php echo $desafio[ "estrellas" ] ?></span>
                             </div>
+                            <div class="nombre"><?php echo $desafio[ "nombre" ] ?></div>
                         </div>
                         <hr/>
                     <?php endforeach ?>
