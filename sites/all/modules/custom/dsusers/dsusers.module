@@ -232,6 +232,10 @@ function get_user_data( $user_id, $month = "2015-07" )
             //    && $liquidacion->field_venta[ "und" ][ 0 ][ "value" ] == 0
             //    && $liquidacion->field_unidades[ "und" ][ 0 ][ "value" ] == 0
             //) continue;
+            if($liquidacion->field_unidades[ "und" ][ 0 ][ "value" ] == "Eliminar"){
+                node_delete($liquidacion->nid);
+                continue;
+            }
             $row[ "nombre" ] = $desafio->title;
             $row[ "descripcion" ] = "";//$desafio->body['und'][0]['value'],
             if(isset($liquidacion->field_notas[ 'und' ][ 0 ][ 'value' ]) && $liquidacion->field_notas[ 'und' ][ 0 ][ 'value' ] != "")
