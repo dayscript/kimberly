@@ -234,6 +234,8 @@ function get_user_data( $user_id, $month = "2015-07" )
             //) continue;
             $row[ "nombre" ] = $desafio->title;
             $row[ "descripcion" ] = "";//$desafio->body['und'][0]['value'],
+            if(isset($liquidacion->field_notas[ 'und' ][ 0 ][ 'value' ]) && $liquidacion->field_notas[ 'und' ][ 0 ][ 'value' ] != "")
+                $row["descripcion"] = $liquidacion->field_notas[ 'und' ][ 0 ][ 'value' ];
             $row[ "mostrar" ] = $desafio->field_mostrar_presupuesto[ "und" ][ 0 ][ "value" ];
             $row[ "estrellas" ] = $liquidacion->field_estrellas[ "und" ][ 0 ][ "value" ];
             $row[ "cumplimiento" ] = $liquidacion->field_cumplimiento[ "und" ][ 0 ][ "value" ];
