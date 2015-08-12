@@ -105,7 +105,7 @@ h2.block-title{
     } 
   }
   .form-type-radios{
-    margin-bottom: 
+    //margin-bottom:  
   }  
   .content-submit{
     display: block;
@@ -127,4 +127,17 @@ h2.block-title{
     color: #444;
     text-align: center;
   }
+}
+
+.block-views-home-banner-slider-block{
+    max-width: 1140px;
+    min-width: 1140px;
+    width: 1140px;
+    margin: 0 auto;
+    h2{
+      display: none;
+    }
+    .flexslider{
+      border:0;
+    }
 }
