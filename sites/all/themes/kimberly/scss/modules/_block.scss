@@ -142,6 +142,7 @@ h2.block-title{
     }
     .flexslider{
       border:0;
+      margin: 0;
     }
     .flex-prev{
       height: 70px;
@@ -154,3 +155,8 @@ h2.block-title{
       z-index: 3;
     }
 } 
+
+.block-md-slider{
+
+  display: none;
+}
