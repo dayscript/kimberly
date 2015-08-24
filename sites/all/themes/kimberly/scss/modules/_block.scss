@@ -105,7 +105,7 @@ h2.block-title{
     } 
   }
   .form-type-radios{
-    margin-bottom: 
+    //margin-bottom:  
   }  
   .content-submit{
     display: block;
@@ -127,4 +127,35 @@ h2.block-title{
     color: #444;
     text-align: center;
   }
+}
+
+.block-views-views-banner-slider-home-block{
+    max-width: 1011px;
+    min-width: 1011px;
+    width: 1011px;
+    margin: 0 auto;
+    .views-field-title{
+      display: none;
+    }
+    h2{
+      display: none;
+    }
+    .flexslider{
+      border:0;
+      margin: 0;
+    }
+    .flex-prev{
+      height: 70px;
+    }
+    .flex-next{
+      height: 70px;
+    }
+    .flex-control-nav{
+      bottom: 50px;
+      z-index: 3;
+    }
+} 
+
+.block-md-slider{
+ display:none;
 }
