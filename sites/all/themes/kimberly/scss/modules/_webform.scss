@@ -34,7 +34,7 @@
     .reveal-modal{
       z-index: 9999;
       background-color:#157DB9;
-
+      h2{text-align:center;}
       form{
       background-color:#157DB9;
         div{
@@ -42,8 +42,19 @@
             input{
               border-radius:11px;
             }
-            label{}
-            button{}
+            label{
+                  font-size: 20px;
+                  color: #fff;
+                  .descriptcion{
+                    display: none;
+                  }
+
+                }
+            button{
+              color: #ffffff;
+              background: #c22b37;
+              border-bottom: 3px solid #8A1D26;
+            }
 
           }
         }
