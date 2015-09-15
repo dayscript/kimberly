@@ -33,5 +33,21 @@
     }
     .reveal-modal{
       z-index: 9999;
+      background-color:#157DB9;
+
+      form{
+      background-color:#157DB9;
+        div{
+          .form-item{
+            input{
+              border-radius:11px;
+            }
+            label{}
+            button{}
+
+          }
+        }
+      }
+
     }
  }
