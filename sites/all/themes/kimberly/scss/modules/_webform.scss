@@ -34,11 +34,13 @@
     }
     .reveal-modal{
       z-index: 1005;
-      background-image: url('../images/Kimberly_diaVendedor_textura.png');
+      background-image: url("../images/backgrounds/Kimberly_diaVendedor_textura.png");
+      background-size: 100%;
       h2{text-align:center;}
       form{
-      background-color:#157DB9;
+      background-color:rgba(21, 125, 185, 0);
         div{
+          background-color:rgba(21, 125, 185, 0);
           .form-item{
             input{
               border-radius:11px;
