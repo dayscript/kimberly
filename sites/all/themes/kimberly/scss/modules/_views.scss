@@ -12,3 +12,14 @@
 [class*="column"]+[class*="column"]:last-child{
   float: left;
 }
+
+
+.views-field-body{
+  .field-content{
+    p{
+      a{
+        color: #008CBA;
+      }
+    }
+  }
+}
