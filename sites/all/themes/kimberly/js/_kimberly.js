@@ -13,6 +13,6 @@ jQuery('a.close-reveal-modal').on('click', function() {
   jQuery('.reveal-modal').css('display','none');
   jQuery('reveal-modal-bg').css('display','none');
 
-});
+}); 
 
 })(jQuery);     
