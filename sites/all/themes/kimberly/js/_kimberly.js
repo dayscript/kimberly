@@ -9,8 +9,10 @@
 			$('.reveal-modal').foundation('reveal', 'open');
 		});
 
-$('a.close-reveal-modal').on('click', function() {
-  $('#second-modal').foundation('reveal', 'close');
+jQuery('a.close-reveal-modal').on('click', function() {
+  jQuery('.reveal-modal').css('display','none');
+  jQuery('reveal-modal-bg').css('display','none');
+
 });
-		
+
 })(jQuery);     
