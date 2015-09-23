@@ -7,7 +7,7 @@
 (function ($) {
 		$(document).ready(function() {	
 			$('.reveal-modal').foundation('reveal', 'open');
-			$('a.close-reveal-modal').foundation('reveal', 'close');
+			$('a.close-reveal-modal').trigger('click');
 			
 		});
 		
