@@ -2,7 +2,7 @@
 (function ($) {
 
 
-	  Drupal.behaviors.cirec = {
+	  Drupal.behaviors.kimberly = {
         attach: function(context, settings){
 
             // Scroll al hacer click en el enlace de contacto
