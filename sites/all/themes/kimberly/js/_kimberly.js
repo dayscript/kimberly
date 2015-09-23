@@ -9,7 +9,7 @@
             $('.reveal-modal').foundation('reveal', 'open');
         	
         	$('.close-reveal-modal').on('click', function() {
-  				$('.reveal-modal').foundation('reveal', 'close');
+  				$('.reveal-modal').css('display', 'none');
 			});    
         
         }
