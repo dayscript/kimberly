@@ -10,6 +10,8 @@
         	
         	$('.close-reveal-modal').on('click', function() {
   				$('.reveal-modal').css('display', 'none');
+  				$('.reveal-modal-bg').css('display', 'none');
+
 			});    
         
         }
