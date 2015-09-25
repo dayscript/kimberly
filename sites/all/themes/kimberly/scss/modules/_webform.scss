@@ -40,7 +40,7 @@
           .form-item{
             input{
              border-radius: 52px;
-            width: 77%;
+            width: 50%;
             margin: 0 auto;
             }
             label{
@@ -55,10 +55,12 @@
                   span{
                     display: none;
                   }
-                  .descriptcion,.description{
+                  
+                }
+                .descriptcion,.description{
                     display: none;
-                  }
-                }  
+                  }  
+
             button{
               color: #ffffff;
               background: #c22b37;
