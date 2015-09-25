@@ -36,6 +36,7 @@
       background-color: rgba(255, 255, 255, 0);
         div{
           background-color:rgba(21, 125, 185, 0);
+          text-align:center;
           .form-item{
             input{
              border-radius: 52px;
@@ -54,10 +55,11 @@
                   span{
                     display: none;
                   }
-                  .descriptcion,.description{
+                  .descriptcion,
+                }
+              .description{
                     display: none;
                   }
-                }
             button{
               color: #ffffff;
               background: #c22b37;
