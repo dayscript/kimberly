@@ -8,11 +8,18 @@
             // Scroll al hacer click en el enlace de contacto
             $('.reveal-modal').foundation('reveal', 'open');
         	
-        	$('.close-reveal-modal').on('click', function() {
-  				$('.reveal-modal').css('display', 'none');
-  				$('.reveal-modal-bg').css('display', 'none');
+           	$('.close-reveal-modal').on('click', function() {
+  		  		$('.reveal-modal').css('display', 'none');
+  			   	$('.reveal-modal-bg').css('display', 'none');
+            
+            $(function(){
+                $('.close-reveal-modal').click(function(){      
+                  $('iframe').attr('src', 'none');
+                });
+            });
+			
 
-			});    
+      });    
         
         }
    };
