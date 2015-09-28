@@ -11,18 +11,14 @@
            	$('.close-reveal-modal').on('click', function() {
   		  		$('.reveal-modal').css('display', 'none');
   			   	$('.reveal-modal-bg').css('display', 'none');
-            
-            $(function(){
-                $('.close-reveal-modal').click(function(){      
-                  $('iframe').attr('src', 'none');
-                });
-            });
-			
-
-      });    
+            $('iframe').attr('src', 'none');
+			});    
         
         }
    };
 
 
 })(jQuery);     
+
+
+
