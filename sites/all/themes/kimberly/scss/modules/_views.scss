@@ -28,7 +28,8 @@
     .l-main{
       .main{
         .view-id-reporte_de_encuesta{
-          li{
+          display: inline-block;
+          li.views-row{
             display: block;
             div{
               float: left;
