@@ -28,11 +28,13 @@
     .l-main{
       .main{
         .view-id-reporte_de_encuesta{
-          display: inline-block;
+          .view-content{
+            display: inline-block;
+          }
           li.views-row{
             display: block;
             div{
-              float: left;
+              color:#fff;
             }
           }
         }   
