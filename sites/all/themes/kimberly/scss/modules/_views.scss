@@ -17,7 +17,7 @@
 .views-field-body{
   .field-content{
     p{
-      a{
+      a{  
         color: #008CBA;
       }
     }
@@ -26,13 +26,15 @@
 .page-reporte-encuesta-completo{
   .main-wrapper{
     .l-main{
-      .main{
+      .main{ 
         .view-id-reporte_de_encuesta{
           .view-content{
             display: inline-block;
           }
           li.views-row{
-            display: block; 
+              display: block;
+              border: solid #fff 1px;
+              float: left;
             div{
               color:#fff;
             }
