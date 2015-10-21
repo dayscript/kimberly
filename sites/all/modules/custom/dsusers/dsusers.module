@@ -202,7 +202,8 @@ function dsusers_desafios_block()
         //$datos[ "desafios" ] = $user_data[ "desafios" ];
         //$datos[ "estrellas" ] = $user_data[ "estrellas" ];
     }
-
+    dpm($datos);
+    
     return $datos;
 }
 
@@ -285,8 +286,11 @@ function dsusers_presentation_block()
     {
         $datos[ 'uid' ] = $us->uid;
         if ( isset( $us->field_mecanica ) && isset( $us->field_mecanica[ 'und' ] ) )
+        {
             $datos[ 'mecanica' ] = $us->field_mecanica[ 'und' ][ 0 ][ 'tid' ];
+        }
         else
+        {
             $datos[ 'mecanica' ] = 0;
         $query = new EntityFieldQuery();
         $result = $query->entityCondition( 'entity_type', 'node' )
@@ -294,6 +298,7 @@ function dsusers_presentation_block()
             ->propertyCondition( 'status', 1 )
             ->fieldCondition( 'field_mecanica', 'tid', $datos[ 'mecanica' ] )
             ->execute();
+        }
         if ( isset( $result[ 'node' ] ) )
         {
             $nids = array_keys( $result[ 'node' ] );
