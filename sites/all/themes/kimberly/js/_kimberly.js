@@ -25,8 +25,8 @@
                 total += resultado;
                 }
                 jQuery('#sum-full').html('Total : '+total);
-                alert('yes');
-            }
+                console.log('Completo..');
+            } 
       }
    };
 })(jQuery);     
