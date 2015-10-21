@@ -22,6 +22,7 @@
                 });
                 for (var i=0; i<calculo.length; i++) {
                 resultado = parseInt(calculo[i]);
+                console.log(resultado);
                 total += resultado;
                 }
                 jQuery('#sum-full').html('Total : '+total);
