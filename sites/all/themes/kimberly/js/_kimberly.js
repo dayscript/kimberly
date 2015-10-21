@@ -26,6 +26,7 @@
                 total += resultado;
                 }
                 jQuery('#sum-full').html('Total : '+total);
+                console.log(total);
                 console.log('Completo..');
             } 
       }
