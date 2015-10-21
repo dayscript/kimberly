@@ -360,6 +360,53 @@
             </div>
         </div>
     <?php endif;?>
+
+<!--  Pruebas de hiustorial -->
+<?php //dpm($user->name); 
+if($user->name == "aacevedo"):?>
+
+    <?php if($data['presentaciones'][$data['did']]):?>
+        <div class="columns medium-5">
+            <div class="grupo">
+                <h3>Presentación</h3>
+                <?php foreach ( $data['presentaciones'][$data['did']]->field_documento_adjunto['und']as $key => $value) :?>
+                    <?php if($key == "0"):?>
+                        <a target="_blank"
+                            href="<?php echo file_create_url($value['uri']) ?>">
+                            
+                                <img
+                                    src="<?php echo image_style_url( 'escalar_a_341', $data[ 'presentaciones' ][$data['did']]->field_image[ 'und' ][ 0 ][ 'uri' ] ) ?>"/>
+                                </a>        
+                    <?php endif; ?>
+                    <?php if($key != "0"):?>
+                    <a class="history-file"  style="color:#000;display:block;"target="_blank"
+                            href="<?php echo file_create_url($value['uri']) ?>">
+                            <img 
+                            style= "width: 20px;height: 30px;margin: 10px;" 
+                            src="pdf-icon-kim"><?php echo $value['description'] ?>
+                    </a>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    <?php elseif( $data['presentacion'] ):?>
+        <div class="columns medium-5">
+            <div class="grupo">
+                <h3>Presentación</h3>
+                <a target="_blank"
+                   href="<?php echo file_create_url( $data[ 'presentacion' ]->field_documento_adjunto[ 'und' ][ 0 ][ 'uri' ] ) ?>">
+                    <img
+                        src="<?php echo image_style_url( 'escalar_a_341', $data[ 'presentacion' ]->field_image[ 'und' ][ 0 ][ 'uri' ] ) ?>"/>
+                </a>
+            </div>
+        </div>
+    <?php endif;?>
+<?php endif;?>
+<!--  Pruebas de hiustorial -->
+
+
+
+
 </div>
 
 <!--<pre>-->
