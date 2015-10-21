@@ -29,7 +29,7 @@
                 console.log(total);
                 console.log('Completo..');
             } 
-      }
+      } 
    };
 })(jQuery);     
 
