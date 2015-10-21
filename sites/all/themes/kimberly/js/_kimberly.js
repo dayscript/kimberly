@@ -21,7 +21,7 @@
                 calculo[index] = jQuery( this ).text();
                 });
                 for (var i=0; i<calculo.length; i++) {
-                resultado = parseFloat(calculo[i]);
+                resultado = parseInt(calculo[i].replace('.',''));
                 console.log(resultado);
                 total += resultado;
                 }
