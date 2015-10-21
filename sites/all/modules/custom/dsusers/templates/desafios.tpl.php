@@ -199,11 +199,11 @@
                 <?php $distribuidor = "Grupo de vendedores" ?>
             <?php endif ?>
             <div class="grupo">
-            <h3><?php echo $distribuidor ?></h3>
+            <h3><?php echo $distribuidor ?><span id="sum-full" style="display: inline-block;float: right;width: 100px;">Total:</span></h3>
 
             <div class="content">
             <?php if ( count( $data[ "vendedores" ] ) > 0 ): ?>
-                <table width="100%">
+                <table width="100%" id="table-consultant">
                 <thead>
                 <tr>
                     <th>Cédula</th>
@@ -225,7 +225,7 @@
                         <div class="content">
                         <table width="100%">
                         <thead>
-                        <tr>
+                        <tr> 
                             <th>Cédula</th>
                             <th>Nombre y Perfil</th>
                             <th class="text-right">Estrellas</th>
@@ -241,7 +241,7 @@
                                 - <?php echo $vendedor[ "perfil" ] ?></small>
                             <br/>
                         </td>
-                        <td class="text-right"><?php echo number_format( $vendedor[ "estrellas" ], 0, ",", "." ) ?></td>
+                        <td class="text-right estrellas"><?php echo number_format( $vendedor[ "estrellas" ], 0, ",", "." ) ?></td>
                         <td class="text-right">
                             <button style="margin-bottom: 0"
                                     onclick="jQuery('tr.<?php echo $vendedor[ "cedula" ] ?>').toggle();"
@@ -363,7 +363,7 @@
 
 <!--  Pruebas de hiustorial -->
 <?php //dpm($user->name); 
-if($user->name == "aacevedo"):?>
+if($user->name == "aacevedo" ||  $user->name == "dayscript"):?>
 
     <?php if($data['presentaciones'][$data['did']]):?>
         <div class="columns medium-5">
@@ -383,7 +383,7 @@ if($user->name == "aacevedo"):?>
                             href="<?php echo file_create_url($value['uri']) ?>">
                             <img 
                             style= "width: 20px;height: 30px;margin: 10px;" 
-                            src="pdf-icon-kim"><?php echo $value['description'] ?>
+                            src="https://www.estrellaskimberly.com/sites/default/files/icons/pdf-icom-kim.png"><?php echo $value['description'] ?>
                     </a>
                     <?php endif; ?>
                 <?php endforeach; ?>
