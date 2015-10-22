@@ -186,8 +186,11 @@ function dsusers_desafios_block()
                     $dist_name = "Vendedor";
                     $datos[ "distribuidores" ][ 0 ] = "Vendedor";
                 }
-
+                if($datos[ 'mes' ] == "Todos"){
+                 $user_data = get_user_data_full_month($vendedor->uid);
+                }else{
                 $user_data = get_user_data( $vendedor->uid, $datos[ 'mes' ] );
+                }
                 $datos[ "vendedores" ][ ] = array(
                     "nombre"       => $vendedor->field_nombres[ 'und' ][ 0 ][ 'value' ] . ' ' . $vendedor->field_apellidos[ 'und' ][ 0 ][ 'value' ],
                     "cedula"       => $vendedor->name,
@@ -202,7 +205,6 @@ function dsusers_desafios_block()
         //$datos[ "desafios" ] = $user_data[ "desafios" ];
         //$datos[ "estrellas" ] = $user_data[ "estrellas" ];
     }
-    dpm($datos);
     
     return $datos;
 }
@@ -255,6 +257,52 @@ function get_user_data( $user_id, $month = "2015-08" )
 
     return $datos;
 }
+
+function get_user_data_full_month($user_id)
+{
+    $datos = array( "desafios" => array(), "estrellas" => 0 );
+    $query = new EntityFieldQuery();
+    $result = $query->entityCondition( 'entity_type', 'node' )
+        ->entityCondition( 'bundle', 'liquidacion' )
+        ->propertyCondition( 'status', 1 )
+        ->propertyCondition( 'uid', $user_id )
+        ->execute();
+    if ( isset( $result[ 'node' ] ) )
+    {
+        $nids = array_keys( $result[ 'node' ] );
+        $liquidaciones = entity_load( "node", $nids );
+        foreach ( $liquidaciones as $nid => $liquidacion )
+        {   $row = array();
+            $row[ "mes" ] = date( "Y-m", strtotime( $liquidacion->field_mes[ 'und' ][ 0 ][ 'value' ] ) );
+            //$row[ "mes_original" ] = $liquidacion->field_mes[ 'und' ][ 0 ][ 'value' ];
+            $desafio = node_load( $liquidacion->field_desafio[ "und" ][ 0 ][ 'target_id' ] );
+            if(trim($liquidacion->field_unidades[ "und" ][ 0 ][ "value" ]) == "Eliminar"){
+                node_delete($liquidacion->nid);
+                continue;
+            }
+            $row[ "nombre" ] = $desafio->title;
+            if( $desafio->field_mostrar_presupuesto[ "und" ][ 0 ][ "value" ] == 'Si' )
+                $row[ "mostrar" ] = $desafio->field_mostrar_presupuesto[ "und" ][ 0 ][ "value" ];
+            
+            if( $liquidacion->field_estrellas[ "und" ][ 0 ][ "value" ] != 0 )
+                $row[ "estrellas" ] = $liquidacion->field_estrellas[ "und" ][ 0 ][ "value" ];
+            if($liquidacion->field_cumplimiento[ "und" ][ 0 ][ "value" ] != 0.00 )
+                $row[ "cumplimiento" ] = $liquidacion->field_cumplimiento[ "und" ][ 0 ][ "value" ];
+            //$row[ "presupuesto" ] = $liquidacion->field_presupuesto[ "und" ][ 0 ][ "value" ];
+            
+            if( $liquidacion->field_venta[ "und" ][ 0 ][ "value" ] != 0 )
+                $row[ "valor" ] = $liquidacion->field_venta[ "und" ][ 0 ][ "value" ];
+            
+            if($liquidacion->field_unidades[ "und" ][ 0 ][ "value" ] != "" || $liquidacion->field_unidades[ "und" ][ 0 ][ "value" ] != "")
+                $row[ "unidades" ] = $liquidacion->field_unidades[ "und" ][ 0 ][ "value" ];
+
+            $datos[ "desafios" ][ $desafio->field_tipodesafio[ "und" ][ 0 ][ "value" ] ][ $nid ] = $row;
+            $datos[ "estrellas" ] += $liquidacion->field_estrellas[ "und" ][ 0 ][ "value" ];
+        }
+    }
+    return $datos;
+}
+
 
 /**
  * @return array
