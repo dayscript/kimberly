@@ -59,15 +59,15 @@ function dsusers_block_view( $delta = '' )
             break;
     }
 
-    return $block;
+    return $block; 
 }
-
+  
 function dsusers_desafios_block()
 {
     drupal_add_js( "https://code.highcharts.com/highcharts.js", 'external' );
     global $user;
     $datos = array();
-    $meses = array( "2015-10","2015-09","2015-08","2015-07","2015-06","2015-05","2015-04", "2015-03" );
+    $meses = array( "2015-11","2015-10","2015-09","2015-08","2015-07","2015-06","2015-05","2015-04", "2015-03" );
     //$datos[ 'mes' ] = "2015-04";
     if ( isset( $_REQUEST[ 'mes' ] ) ) $datos[ 'mes' ] = htmlentities($_REQUEST[ "mes" ]);
     $datos[ "estrellas" ] = 0;
@@ -266,6 +266,7 @@ function get_user_data_full_month($user_id)
         ->entityCondition( 'bundle', 'liquidacion' )
         ->propertyCondition( 'status', 1 )
         ->propertyCondition( 'uid', $user_id )
+        ->propertyOrderBy('title', 'ASC')
         ->execute();
     if ( isset( $result[ 'node' ] ) )
     {
@@ -355,7 +356,7 @@ function dsusers_presentation_block()
         }
 
     }
-
+    dpm($datos);
     return $datos;
 }
 
