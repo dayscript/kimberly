@@ -10,7 +10,7 @@
         </div>
         <?php if ( isset($data["cuotas"]) && ($data[ "perfil" ] == "Vendedor" || $data[ "perfil" ] == "Jefe de Ventas") ): ?>
             <div class="grupo cuotas">
-                <h3><?php echo $data["cuotas"]["titulo"]?></h3>
+                <div class="cuota row"><h3><?php echo $data["cuotas"]["titulo"]?></h3></div>
                 <?php foreach($data["cuotas"]["datos"] as $desafio):?>
                     <?php if($desafio[ "presupuesto" ]>0):?>
                         <div class="cuota row">
@@ -20,7 +20,7 @@
                                     $<?php echo number_format( $desafio[ "presupuesto" ], "0", ",", "." ) ?>
                                 <?php else:?>
                                     <?php echo number_format( $desafio[ "presupuesto" ], "0", ",", "." ) . " " . $desafio[ "unidades" ] ?>
-                                <?php endif?>
+                                <?php endif?> 
                             </div>
 
                         </div>
