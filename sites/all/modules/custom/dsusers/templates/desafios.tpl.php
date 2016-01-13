@@ -68,8 +68,8 @@
             <?php if ( $data[ "perfil" ] == "Vendedor" || $data[ "perfil" ] == "Jefe de Ventas" ): ?>
                 <div class="meses small-4 columns right" style="font-size: 1.2rem;">
                     Total de Estrellas <br/>
-                    <strong><?php echo $data["mes"]?></strong>:
-                    <?php dpm(t(date( "F",strtotime($data["mes"])))) ?>
+                    <strong><?php echo t(date( "F",strtotime($data["mes"]))) ?></strong>:
+                    <?php //dpm(t(date( "F",strtotime($data["mes"])))) ?>
                     <span class="red"><?php echo number_format( $data["liquidaciones"][$data["mes"]][ "estrellas" ], 0, ",", "." ) ?></span>
                 </div>
             <?php endif ?>
