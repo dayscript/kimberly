@@ -5,6 +5,7 @@
     bottom: 0;
     right: 0;
     padding: 0;
+    border-bottom: 4px solid #bfbfbf;
   }
   ul.menu{
     font-family: $font-sansalight;
@@ -27,7 +28,7 @@
       &.active-trail{
         a{
           color: white;
-          background: $darkred;
+          background: #4d4d4d;
           text-decoration: none;
         }
       }
