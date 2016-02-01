@@ -17,11 +17,11 @@
         text-transform: uppercase;
         &.active,
         &:hover{
-          background: $darkred;
+          background: #4d4d4d;
           color: white;
         }
         &:hover{
-          background: darken( $darkred, 10% );
+          background: darken( #4d4d4d, 10% );
           text-decoration: none;
         }
       }
