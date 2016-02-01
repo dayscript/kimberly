@@ -7,6 +7,9 @@
   padding-right: 0;
 
 }
+body{
+background: url("../images/backgrounds/fondo.jpg") center -281px no-repeat; 
+}
 p{
   font-family: $font-sans;
   font-size: 0.82rem;
@@ -18,7 +21,7 @@ p{
   }
 }
 .body{
-  background: url("../images/backgrounds/fondo.jpg") center -281px no-repeat; 
+
   a{
     color: #008CBA!important;
   } 
