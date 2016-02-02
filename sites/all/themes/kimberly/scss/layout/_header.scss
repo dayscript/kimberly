@@ -2,7 +2,10 @@
 .l-header{
 	border-bottom: 4px solid #bfbfbf;
 	height: 450px;
-	padding-top: 260px
+    padding-top: 260px;
+@media #{$medium-only} { 
+padding-top: 0;
+}
 }
 .l-featured{
   //border-bottom: 4px solid #bfbfbf;
