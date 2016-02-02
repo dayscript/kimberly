@@ -2,7 +2,7 @@
 .header_desafios,
 .header_entretenimiento,
 .header_universidad{
-  background: url("../images/headers/desafios.jpg") left center no-repeat;
+  background: url("../images/headers/title-header.jpg") left center repeat;
   padding: 13px 25px;
   p{
     font-size: 2rem;
@@ -13,8 +13,8 @@
   margin-bottom: 15px;
 }
 .header_entretenimiento{
-  background: url("../images/headers/entretenimiento.jpg") left center no-repeat;
+  background: url("../images/headers/title-header.jpg") left center repeat;
 }
 .header_universidad{
-  background: url("../images/headers/universidad.jpg") left center no-repeat;
+  background: url("../images/headers/title-header.jpg") left center repeat;
 }
