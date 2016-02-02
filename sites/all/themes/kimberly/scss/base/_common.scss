@@ -32,8 +32,17 @@
   url('../fonts/sansapro-normali/SansaProNormalItalic.ttf') format('truetype'),
   url('../fonts/sansapro-normali/SansaProNormalItalic.svg#SansaProNormalItalic') format('svg');
 }
+@font-face {
+  font-family: 'Oswald-Bold';
+  src: url('../fonts/oswald/Oswald-Bold.eot') format('embedded-opentype');
+  src:  url('../fonts/oswald/Oswald-woff.eot') format('woff'), url('../fonts/oswald/Oswald-Bold.ttf')  format('truetype'), url('../fonts/oswald/Oswald-Bold.svg#Oswald-Bold') format('svg');
+}
+
+
+
+
 $font-sans: "Open Sans", "Helvetica", sans-serif;
-$font-sansalight: "SansaProLight", "Open Sans", "Helvetica", sans-serif;
+$font-sansalight: "Oswald-Bold", "Open Sans", "Helvetica", sans-serif;
 $font-sansanormal: "SansaProNormal", "Open Sans", "Helvetica", sans-serif;
 $font-sansanormali: "SansaProNormalItalic", "Open Sans", "Helvetica", sans-serif;
 
