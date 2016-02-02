@@ -1,14 +1,14 @@
 .block-dsusers{
   font-family: $font-sansanormal;
-  margin-top: 10px;
+  margin-top: 85px;
   color: #ffffff;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   .welcome{
     .name{
       text-transform: uppercase;
     }
     .logout{
-      border-top: 4px solid $darkred;
+      border-top: 4px solid #4d4d4d;
       float: right;
       padding: 3px 0 0 10px;
       margin-top: 3px;
@@ -20,7 +20,7 @@
     }
   }
   .myaccount{
-    background: $darkred;
+    background: #4d4d4d;
     font-family: $font-sansalight;
     a{
       text-transform: uppercase;
@@ -42,7 +42,7 @@
     font-size: 1.2rem;
   }
   #edit-submit{
-    background: $darkred;
+    background: #4d4d4d;
     font-family: $font-sansalight;
     width: 100%;
     border: none;
@@ -51,7 +51,7 @@
     font-size: 1.2rem;
     padding: 8px;
     &:hover{
-      background: lighten( $darkred, 10% );
+      background: lighten( #4d4d4d, 10% );
     }
   }
   .item-list{
