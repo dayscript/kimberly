@@ -37,13 +37,17 @@
   src: url('../fonts/oswald/Oswald-Bold.eot') format('embedded-opentype');
   src:  url('../fonts/oswald/Oswald-woff.eot') format('woff'), url('../fonts/oswald/Oswald-Bold.ttf')  format('truetype'), url('../fonts/oswald/Oswald-Bold.svg#Oswald-Bold') format('svg');
 }
-
+@font-face {
+  font-family: 'Raleway';
+  src: url('../fonts/raleway/Raleway.eot') format('embedded-opentype');
+  src:  url('../fonts/raleway/Raleway.woff') format('woff'), url('../fonts/raleway/Raleway.ttf')  format('truetype'), url('../fonts/raleway/Raleway.svg#Raleway') format('svg');
+}
 
 
 
 $font-sans: "Open Sans", "Helvetica", sans-serif;
 $font-sansalight: "Oswald-Bold", "Open Sans", "Helvetica", sans-serif;
-$font-sansanormal: "SansaProNormal", "Open Sans", "Helvetica", sans-serif;
+$font-sansanormal: "Raleway", "Open Sans", "Helvetica", sans-serif;
 $font-sansanormali: "SansaProNormalItalic", "Open Sans", "Helvetica", sans-serif;
 
 $lightgreen: #7bc051;
