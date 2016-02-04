@@ -4,3 +4,5 @@ sites/*/settings*.php
 # Ignore paths that contain user-generated content.
 sites/*/files
 sites/*/private
+
+sites/all/themes/kimberly/images/backgrounds/KCP---Día-del-Vendedor---Banner-784x450px (1).jpg
