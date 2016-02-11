@@ -45,7 +45,17 @@
   }
 }
 .front{
-  .view-noticias,.view-universidad{
+  .view-universidad,.view-noticias{
+    .views-field.views-field-title{
+      min-height: inherit!important;
+    }
+  }
+  .attachment.view-noticias,.attachment.view-universidad{
+    .views-field.views-field-title{
+      padding: 0;
+      height: auto;
+      min-height: inherit!important;
+    }
     .view-content{
       background: #fff;
       .views-row-1{
@@ -61,8 +71,7 @@
       .views-field.views-field-title{
         padding: 0;
         height: auto;
-        min-height: inherit;
-
+        min-height: inherit!important;
       }
     }
     .view-header{
