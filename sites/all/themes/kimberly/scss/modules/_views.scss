@@ -53,6 +53,7 @@
       }
       a.link{
         color:#008CBA;
+        text-transform: capitalize;
       }
       .views-row{
         padding: 5px 5px;
@@ -62,6 +63,20 @@
         height: auto;
         min-height: inherit;
 
+      }
+    }
+    .view-header{
+      .toogle-innovacion {
+        background-image: url('../images/icons/flecha_abajo.png');
+        background-repeat: no-repeat;
+      background-position: 97%;
+      background-size: 21px;
+      }
+      .toogle-catalogo{
+        background-image: url('../images/icons/flecha_abajo.png');
+        background-repeat: no-repeat;
+      background-position: 97%;
+      background-size: 21px;
       }
     }
     .toogle-catalogo{
