@@ -17,7 +17,7 @@
 .views-field-body{
   .field-content{
     p{
-      a{  
+      a{
         color: #008CBA;
       }
     }
@@ -26,7 +26,7 @@
 .page-reporte-encuesta-completo{
   .main-wrapper{
     .l-main{
-      .main{ 
+      .main{
         .view-id-reporte_de_encuesta{
           .view-content{
             display: inline-block;
@@ -39,9 +39,54 @@
               color:#fff;
             }
           }
-        }   
+        }
       }
     }
   }
 }
+.front{
+  .view-noticias,.view-universidad{
+    .view-content{
+      background: #fff;
+      .views-row-1{
+        margin:0;
+      }
+      a.link{
+        color:#008CBA;
+      }
+      .views-row{
+        padding: 5px 5px;
+      }
+      .views-field.views-field-title{
+        padding: 0;
+        height: auto;
+        min-height: inherit;
 
+      }
+    }
+    .toogle-catalogo{
+      color: #fff;
+      background: #525252;
+      font-size: 15px;
+      text-transform: uppercase;
+      padding: 1px 10px;
+      background-image: url();
+
+      &:after{
+        content:"";
+        text-align: right;
+      }
+    }
+    .toogle-innovacion{
+      color: #fff;
+      background: #525252;
+      font-size: 15px;
+      text-transform: uppercase;
+      padding: 1px 10px;
+      background-image: url();
+      &:after{
+        content:"";
+      }
+    }
+  }
+}
