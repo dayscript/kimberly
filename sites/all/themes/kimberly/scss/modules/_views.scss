@@ -49,15 +49,20 @@
     .views-field.views-field-title{
       min-height: inherit!important;
     }
+    .view-content{
+      .views-row {
+        margin: 0;
+      }
+    }
   }
-  .attachment.view-noticias,.attachment.view-universidad{
+  .attachment .view-noticias,.attachment .view-universidad{
     .views-field.views-field-title{
       padding: 0;
       height: auto;
       min-height: inherit!important;
     }
     .view-content{
-      background: #fff; 
+      background: #fff;
       .views-row-1{
         margin:0;
       }
@@ -78,14 +83,14 @@
       .toogle-innovacion {
         background-image: url('../images/icons/flecha_abajo.png');
         background-repeat: no-repeat;
-      background-position: 97%;
-      background-size: 21px;
+        background-position: 97%;
+        background-size: 21px;
       }
       .toogle-catalogo{
         background-image: url('../images/icons/flecha_abajo.png');
         background-repeat: no-repeat;
-      background-position: 97%;
-      background-size: 21px;
+        background-position: 97%;
+        background-size: 21px;
       }
     }
     .toogle-catalogo{
