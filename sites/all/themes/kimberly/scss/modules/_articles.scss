@@ -67,10 +67,12 @@
   .arrow{
     margin-top: -21px;
     height: 21px;
+    display: none
   }
   .arrow2{
     margin-top: -7px;
     position: absolute;
+    display: none
   }
   .arrow3{
     margin-top: -77px;
@@ -78,6 +80,7 @@
     position: absolute;
     top: 155px;
     left: 378px;
+    display: none
   }
   .views-field-title{
     background-color: #ffffff;
