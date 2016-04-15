@@ -1,13 +1,16 @@
 .section-actualizacion-datos{
-.clearfix .form-wrapper {
-width: 50%;
-float: left;
-padding: 0px 32px;
+    .clearfix {
+        div.form-wrapper {
+            width: 50%;
+            float: left;
+            padding: 0px 32px;
+
+        }
+        div.field-name-field-fecha-de-nacimiento {
+           width: 100%;
+        }
 }
 
-.field-name-field-fecha-de-nacimiento {
-width: 100%;
-}
 
 .form-actions{
 width: 14%;
