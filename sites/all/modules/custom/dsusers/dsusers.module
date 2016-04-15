@@ -67,7 +67,9 @@ function dsusers_desafios_block()
     drupal_add_js( "https://code.highcharts.com/highcharts.js", 'external' );
     global $user;
     $datos = array();
-    $meses = array( "2015-11","2015-10","2015-09","2015-08","2015-07","2015-06","2015-05","2015-04", "2015-03" );
+    //$meses = array( "2015-11","2015-10","2015-09","2015-08","2015-07","2015-06","2015-05","2015-04", "2015-03" );
+    $meses = array( '2016-03' );
+
     //$datos[ 'mes' ] = "2015-04";
     if ( isset( $_REQUEST[ 'mes' ] ) ) $datos[ 'mes' ] = htmlentities($_REQUEST[ "mes" ]);
     $datos[ "estrellas" ] = 0;
@@ -94,7 +96,7 @@ function dsusers_desafios_block()
                 if(!isset($datos['mes']))$datos['mes'] = $mes;
                 if(!isset($datos["cuotas"])){
                     date_default_timezone_set("America/Bogota");
-                    $nombre_mes = array("01"=>"Enero","02"=>"Febrero","03"=>"Marzo","04"=>"Abril","05"=>"Mayo","06"=>"Junio","07"=>"Julio",
+                    $nombre_mes = array("03"=>"Marzo","04"=>"Abril","05"=>"Mayo","06"=>"Junio","07"=>"Julio",
                                         "08"=>"Agosto","09"=>"Septiembre","10"=>"Octubre","11"=>"Noviembre","12"=>"Diciembre");
                     $datos["cuotas"]["titulo"] = "Cuotas para " . $nombre_mes[date("m",strtotime($mes))];
                     $datos["cuotas"]["datos"] = array_merge($user_data[ "desafios" ]["individual"], $user_data[ "desafios" ]["grupal"]);
@@ -209,7 +211,7 @@ function dsusers_desafios_block()
     return $datos;
 }
 
-function get_user_data( $user_id, $month = "2015-08" )
+function get_user_data( $user_id, $month = "2016-03" )
 {
     $datos = array( "desafios" => array(), "estrellas" => 0 );
     $query = new EntityFieldQuery();

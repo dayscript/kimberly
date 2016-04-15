@@ -8,7 +8,8 @@
 
 }
 body{
-background: url("../images/backgrounds/fondo.jpg") center 0px repeat; 
+background: url("../images/backgrounds/fondo.jpg") center 0px repeat-x; 
+background-color: #000;
 }
 p{
   font-family: $font-sans;
