@@ -37,7 +37,7 @@ function kimberly_formulario_block_view($delta = '') {
   switch ($delta) {
     case 'kimberly_formulario':
       module_load_include('inc', 'kimberly_formulario', 'kimberly_formulario_form');
-      $block['subject'] = t('Block Title');
+      $block['subject'] = t('Actualizacion de datos');
       $block['content'] = kimberly_formulario_drupal_get_form();
       break;
   }
