@@ -66,7 +66,7 @@
         right: 50px;
         width: 839px;
     }
-    div.edit-actions--2{
+    button#edit-submit{
         position: absolute;
         top: 523px;
         right: 192px;
@@ -74,4 +74,7 @@
         background-color: rgb(16, 142, 207);
     }
 
+    div.reveal-modal-bg{
+        height: 110%;
+    }
 }

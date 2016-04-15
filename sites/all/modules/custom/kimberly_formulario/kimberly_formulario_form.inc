@@ -52,6 +52,11 @@ function kimberly_formulario_drupal_get_form(){
 }
 
 
+function submit_button(){
+  drupal_goto('/gracias-por-activar-tu-cuenta');
+}
+
+
 function  kimberly_formulario_form_user_profile_form_alter(&$form, &$form_state, $form_id){
   $url = arg();
   $path = drupal_get_path_alias($url[0].'/'.$url[1]);
@@ -72,8 +77,6 @@ function  kimberly_formulario_form_user_profile_form_alter(&$form, &$form_state,
   $form['field_consultores']['#access'] = FALSE;
   $form['field_gerente']['#access'] = FALSE;
   $form['#validate'][] =  'kimberly_formulario_validate';
-  
-}
-
-  
+  $form['#submit'][] = submit_button;
+} 
 }
