@@ -9,69 +9,66 @@
     ul.breadcrumbs{
         display: none;
     }
+}   
+ul.breadcrumbs{
+    display: none;
 }
-.section-actualizacion-datos{
-    ul.breadcrumbs{
-        display: none;
-    }
-    .l-header{
-    border-bottom:0px solid #bfbfbf
-    }
-    .block-kimberly-formulario, dialog{
-        z-index: 1005;
-        display: block;
-        opacity: 1;
-        visibility: visible;
-        top: 129px;
-        height: 700px;
-        width: 50%;
-    }
-    div.form-item-mail{
+.l-header{
+border-bottom:0px solid #bfbfbf
+}
+.block-kimberly-formulario, dialog{
+    z-index: 1005;
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    top: 129px;
+    height: 700px;
+    width: 50%;
+}
+div.form-item-mail{
+position: absolute;
+top: 190px;
+right: 50px;
+
+}
+div#edit-field-nombres{
+position: absolute;
+top: 70px;
+right: 500px;
+}
+div#edit-field-apellidos{
+position: absolute;
+top: 70px;
+right: 50px;
+}
+div#edit-field-genero{
+    position: absolute;
+    top: 310px;
+    right: 500px;
+    width: 41%;
+}
+div#edit-field-celular{
     position: absolute;
     top: 190px;
-    right: 50px;
-
-    }
-    div#edit-field-nombres{
-    position: absolute;
-    top: 70px;
     right: 500px;
-    }
-    div#edit-field-apellidos{
+    width: 41%;
+}
+div#edit-field-ciudad{
     position: absolute;
-    top: 70px;
+    top: 310px;
     right: 50px;
-    }
-    div#edit-field-genero{
-        position: absolute;
-        top: 310px;
-        right: 500px;
-        width: 41%;
-    }
-    div#edit-field-celular{
-        position: absolute;
-        top: 190px;
-        right: 500px;
-        width: 41%;
-    }
-    div#edit-field-ciudad{
-        position: absolute;
-        top: 310px;
-        right: 50px;
-        width: 41%;
-    }
-     div#edit-field-fecha-de-nacimiento{
-        position: absolute;
-        top: 430px;
-        right: 50px;
-        width: 839px;
-    }
-    div.edit-actions--2{
-        position: absolute;
-        top: 523px;
-        right: 192px;
-        width: 26%;
-        background-color: rgb(16, 142, 207);
-    }
-
+    width: 41%;
+}
+ div#edit-field-fecha-de-nacimiento{
+    position: absolute;
+    top: 430px;
+    right: 50px;
+    width: 839px;
+}
+div.edit-actions--2{
+    position: absolute;
+    top: 523px;
+    right: 192px;
+    width: 26%;
+    background-color: rgb(16, 142, 207);
 }
