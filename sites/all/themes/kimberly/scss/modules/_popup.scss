@@ -37,3 +37,21 @@
     }
     }
 }
+
+.section-terminos-y-condiciones{
+    section.reveal-modal{
+        z-index: 1004;
+        height: 100%;
+        width: 100%;
+        overflow: auto;
+    }
+    p{
+        color: #999;
+    }
+    a{
+        color: #008CBA 
+    }
+    div{
+        text-align:center;
+    }
+}
