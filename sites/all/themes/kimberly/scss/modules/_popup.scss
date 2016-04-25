@@ -25,3 +25,15 @@
         z-index: 996;
     }
 }
+.section-terminos-y-condiciones{
+    .main-wrapper{ 
+        ul.breadcrumbs{
+            display: none;
+        }
+    }
+    .page{
+    header.l-header{
+        border-bottom: 0px;
+    }
+    }
+}
