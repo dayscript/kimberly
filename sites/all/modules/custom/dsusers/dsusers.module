@@ -68,7 +68,7 @@ function dsusers_desafios_block()
     global $user;
     $datos = array();
     //$meses = array( "2015-11","2015-10","2015-09","2015-08","2015-07","2015-06","2015-05","2015-04", "2015-03" );
-    $meses = array( '2016-03' );
+    $meses = array( '2016-05', '2016-04', '2016-03' );
 
     //$datos[ 'mes' ] = "2015-04";
     if ( isset( $_REQUEST[ 'mes' ] ) ) $datos[ 'mes' ] = htmlentities($_REQUEST[ "mes" ]);
@@ -137,12 +137,14 @@ function dsusers_desafios_block()
             if ( $datos[ 'perfil' ] == "Jefe de Ventas" )
             {
                 $result_users = $query_users->entityCondition( 'entity_type', 'user' )
+                    ->propertyCondition('status', 1)
                     ->fieldCondition( 'field_jefe', 'target_id', $us->uid, '=' )
                     ->fieldOrderBy( 'field_distribuidor', 'tid', 'ASC' )
                     ->execute();
             } else if ( $datos[ 'perfil' ] == "Consultor" )
             {
                 $result_users = $query_users->entityCondition( 'entity_type', 'user' )
+                    ->propertyCondition('status', 1)
                     ->fieldCondition( 'field_consultores', 'target_id', $us->uid, '=' )
                     ->fieldOrderBy( 'field_distribuidor', 'tid', 'ASC' )
                     ->fieldOrderBy( 'field_perfil', 'tid', 'DESC' )

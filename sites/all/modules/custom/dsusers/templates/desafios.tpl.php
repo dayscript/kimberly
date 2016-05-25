@@ -33,7 +33,7 @@
         <div class="acumulado columns small-6">
             <h3>Mi Acumulado</h3>
 
-            <div class="estrellas"><?php echo number_format( $data[ "estrellas" ], 0, ",", "." ) ?></div>
+            <div class="estrellas">$<?php echo number_format( $data[ "estrellas" ], 0, ",", "." ) ?></div>
         </div>
     <?php endif ?>
 </div>
@@ -74,7 +74,7 @@
                     <?php else: ?>
                         <strong>Marzo</strong>:
                     <?php endif; ?>   
-                    <span class="red"><?php echo number_format( $data["liquidaciones"][$data["mes"]][ "estrellas" ], 0, ",", "." ) ?></span>
+                    <span class="red">$<?php echo number_format( $data["liquidaciones"][$data["mes"]][ "estrellas" ], 0, ",", "." ) ?></span>
                 </div>
             <?php endif ?>
         </div>
@@ -102,7 +102,7 @@
                                 <small><strong>*</strong> <?php echo $desafio[ "descripcion" ] ?></small>
                             <?php endif ?>
                             <div class="item estrellas">Estrellas obtenidas <span
-                                    class="data"><?php echo $desafio[ "estrellas" ] ?></span></div>
+                                    class="data"><?php echo number_format( $desafio[ "estrellas" ], "0", ",", "." ) ?></span></div>
                             <?php if ( $desafio[ "mostrar" ] == "No" ): ?>
 
                             <?php else: ?>
@@ -153,7 +153,7 @@
                                 <small><strong>*</strong> <?php echo $desafio[ "descripcion" ] ?></small>
                             <?php endif ?>
                             <div class="item estrellas">Estrellas obtenidas <span
-                                    class="data"><?php echo $desafio[ "estrellas" ] ?></span></div>
+                                    class="data"><?php echo number_format( $desafio[ "estrellas" ], "0", ",", "." ) ?></span></div>
                             <?php if ( $desafio[ "mostrar" ] == "No" ): ?>
 
                             <?php else: ?>
@@ -190,7 +190,7 @@
                     <?php foreach ( $data["liquidaciones"][$data["mes"]][ "desafios" ][ "otros" ] as $desafio ): ?>
                         <div class="desafio">
                             <div class="item estrellas">
-                                Estrellas obtenidas <span class="data"><?php echo $desafio[ "estrellas" ] ?></span>
+                                Estrellas obtenidas <span class="data"><?php echo number_format( $desafio[ "estrellas" ], "0", ",", "." ) ?></span>
                             </div>
                             <div class="nombre"><?php echo $desafio[ "nombre" ] ?></div>
                         </div>
