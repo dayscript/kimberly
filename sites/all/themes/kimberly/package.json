@@ -8,7 +8,7 @@
     "grunt-contrib-watch": "~0.6.1",
     "grunt-drush": "*",
     "grunt-sass": "^1.1.0",
-    "load-grunt-tasks": "~0.6.0",
+    "load-grunt-tasks": "^0.6.0",
     "node-bourbon": "1.2.3"
   }
 }
