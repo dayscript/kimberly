@@ -53,6 +53,7 @@ module.exports = function(grunt) {
       dist: {
         options: {
           outputStyle: 'compressed',
+          sourceMap: true,
           includePaths: ['<%= global_vars.theme_scss %>', '<%= global_vars.base_theme_path %>/scss/'].concat(bourbon)
         },
         files: {

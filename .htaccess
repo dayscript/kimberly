@@ -115,6 +115,10 @@ DirectoryIndex index.php index.html index.htm
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_URI} !=/favicon.ico
   RewriteRule ^ index.php [L]
+  
+  RewriteEngine On
+  RewriteCond %{SERVER_PORT} !443
+  RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
   # Rules to correctly serve gzip compressed CSS and JS files.
   # Requires both mod_rewrite and mod_headers to be enabled.

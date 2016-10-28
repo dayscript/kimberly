@@ -68,7 +68,7 @@ function dsusers_desafios_block()
     global $user;
     $datos = array();
     //$meses = array( "2015-11","2015-10","2015-09","2015-08","2015-07","2015-06","2015-05","2015-04", "2015-03" );
-    $meses = array( '2016-05', '2016-04', '2016-03' );
+    $meses = array( '2016-10','2016-09','2016-08', '2016-07', '2016-06', '2016-05', '2016-04', '2016-03' );
 
     //$datos[ 'mes' ] = "2015-04";
     if ( isset( $_REQUEST[ 'mes' ] ) ) $datos[ 'mes' ] = htmlentities($_REQUEST[ "mes" ]);
@@ -209,7 +209,7 @@ function dsusers_desafios_block()
         //$datos[ "desafios" ] = $user_data[ "desafios" ];
         //$datos[ "estrellas" ] = $user_data[ "estrellas" ];
     }
-    
+    dpm($datos);
     return $datos;
 }
 
