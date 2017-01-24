@@ -1,5 +1,5 @@
 h2.block-title{
-  font-family: $font-sansalight;
+  font-family: $font-menu;
   text-transform: uppercase;
   font-size: 1.6rem;
   color: #ffffff;
@@ -31,7 +31,7 @@ h2.block-title{
   }
 }
 .block-blockify-blockify-logo{
-  margin: 280px 0 7px 0;
+  margin: 69px 0 7px 0;
 }
 .block-views-noticias-block,
 .block-views-entretenimiento-block,
@@ -161,9 +161,15 @@ h2.block-title{
 }
 
 .page-user form button.secondary {
-    background: #108ecf; 
+    background: #01A5AE;
 }
 
 .page .main-wrapper .block-views-eventos-block-3 .field-content img{
   width: 100%;
+}
+
+.attachment-after{
+  .view-header.block-title{
+   padding: 5px;
+ }
 }

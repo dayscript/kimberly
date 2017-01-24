@@ -63,15 +63,17 @@ float: left;
     }
     .view-content{
       background: #fff;
+      padding: 8px;
       .views-row-1{
         margin:0;
       }
       a.link{
         color:#008CBA;
         text-transform: capitalize;
+        font-size: 0.9em;
       }
       .views-row{
-        padding: 6px 12px;
+        padding: 10px 12px;
       }
       .views-field.views-field-title{
         padding: 0;
@@ -94,22 +96,24 @@ float: left;
       }
     }
     .toogle-catalogo{
+      font-family: $font-menu;
       color: #fff;
       background: #525252;
-      font-size: 15px;
+      font-size: 14px;
       text-transform: uppercase;
-      padding: 1px 10px;
+      padding: 8px 10px;
       &:after{
         content:"";
         text-align: right;
       }
     }
     .toogle-innovacion{
+      font-family: $font-menu;
       color: #fff;
       background: #525252;
-      font-size: 15px;
+      font-size: 14px;
       text-transform: uppercase;
-      padding: 1px 10px;
+      padding: 8px 10px;
       &:after{
         content:"";
       }

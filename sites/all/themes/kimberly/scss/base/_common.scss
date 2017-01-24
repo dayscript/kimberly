@@ -33,9 +33,9 @@
   url('../fonts/sansapro-normali/SansaProNormalItalic.svg#SansaProNormalItalic') format('svg');
 }
 @font-face {
-  font-family: 'Oswald-Bold';
-  src: url('../fonts/oswald/Oswald-Bold.eot') format('embedded-opentype');
-  src:  url('../fonts/oswald/Oswald-woff.eot') format('woff'), url('../fonts/oswald/Oswald-Bold.ttf')  format('truetype'), url('../fonts/oswald/Oswald-Bold.svg#Oswald-Bold') format('svg');
+  font-family: 'Roboto-Regular';
+  src: url('../fonts/Roboto-Regular/Roboto-Regular.eot') format('embedded-opentype');
+  src:  url('../fonts/Roboto-Regular/Roboto-Regular.eot') format('woff'), url('../fonts/Roboto-Regular/Roboto-Regular.ttf')  format('truetype'), url('../fonts/Roboto-Regular/Roboto-Regular#Roboto-Regular') format('svg');
 }
 @font-face {
   font-family: 'Raleway';
@@ -43,18 +43,23 @@
   src:  url('../fonts/raleway/Raleway.woff') format('woff'), url('../fonts/raleway/Raleway.ttf')  format('truetype'), url('../fonts/raleway/Raleway.svg#Raleway') format('svg');
 }
 
-
+@font-face {
+  font-family: 'RobotoCondensed-Bold';
+  src: url('../fonts/RobotoCondensed-Bold/RobotoCondensed-Bold.eot') format('embedded-opentype');
+  src:  url('../fonts/RobotoCondensed-Bold/RobotoCondensed-Bold.woff') format('woff'), url('../fonts/RobotoCondensed-Bold/RobotoCondensed-Bold.ttf')  format('truetype'), url('../fonts/RobotoCondensed-Bold/RobotoCondensed-Bold.svg#Raleway') format('svg');
+}
 
 $font-sans: "Open Sans", "Helvetica", sans-serif;
 $font-sansalight: "Oswald-Bold", "Open Sans", "Helvetica", sans-serif;
 $font-sansanormal: "Raleway", "Open Sans", "Helvetica", sans-serif;
 $font-sansanormali: "Raleway", "Open Sans", "Helvetica", sans-serif;
+$font-menu: "RobotoCondensed-Bold";
 
 $lightgreen: #7bc051;
-$darkred: #108ecf;
+$darkred: #01A5AE;
 $blue1: #26649c;
 $text-gray: #999;
 $text-lightgray: #ccc;
 $text-darkgray: #333;
 $darkgreen: #525b2b;
-$blue2: #7b93c6;
+$blue2: #006e7d;
