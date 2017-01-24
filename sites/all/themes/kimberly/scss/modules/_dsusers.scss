@@ -75,12 +75,15 @@
 .front.not-logged-in{
   .main-wrapper{
     background: url("../images/backgrounds/login.jpg") center 0px no-repeat;
-    padding: 50px 0;
+    padding: 5px 0;
     min-height: 500px;
     .block-user-login {
       background: none;
       max-width: 300px;
     }
+  }
+  body{
+   background-color: #ccc;
   }
 }
 .page-user{
@@ -139,4 +142,16 @@
 .not-logged-in form#user-login{
   max-width: 300px;
   margin: 0 auto;
+}
+.block-user-login .item-list ul {
+  margin-left: 0;
+  position: absolute;
+  top: 200px;
+  width: 83%;
+  a{
+    color: #fff !important;
+  }
+}
+.datos{
+  font-size: 1em;
 }
